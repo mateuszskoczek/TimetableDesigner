@@ -12,7 +12,7 @@ namespace TimetableDesigner.Core
         #region FIELDS
 
         private List<TimetableDay> _days;
-        private List<TimetableSlot> _slots;
+        private TimetableSpanCollection _slots;
 
         #endregion
 
@@ -21,7 +21,7 @@ namespace TimetableDesigner.Core
         #region PROPERTIES
 
         public IEnumerable<TimetableDay> Days => _days;
-        public IEnumerable<TimetableSlot> Slots => _slots;
+        public IEnumerable<TimetableSpan> Slots => _slots;
 
         #endregion
 
@@ -32,7 +32,7 @@ namespace TimetableDesigner.Core
         public TimetableTemplate()
         {
             _days = new List<TimetableDay>();
-            _slots = new List<TimetableSlot>();
+            _slots = new TimetableSpanCollection();
         }
 
         #endregion
@@ -41,39 +41,13 @@ namespace TimetableDesigner.Core
 
         #region PUBLIC METHODS
 
-        public void AddDay(TimetableDay name)
-        {
-            _days.Add(name);
-        }
+        public void AddDay(TimetableDay name) => _days.Add(name);
 
-        public bool RemoveDay(TimetableDay day)
-        {
-            return _days.Remove(day);
-        }
+        public bool RemoveDay(TimetableDay day) => _days.Remove(day);
 
-        public void AddSlot(TimetableSlot slot)
-        {
-            int i = 0;
-            if (_slots.Count > 0)
-            {
-                bool done = false;
-                while (i < _slots.Count && !done)
-                {
-                    switch (slot.CheckCollision(_slots[i]))
-                    {
-                        case TimetableSlotsCollision.CheckedSlotBefore: i++; break;
-                        case TimetableSlotsCollision.CheckedSlotAfter: done ^= true; break;
-                        default: throw new ArgumentException("Slot collide with another slot");
-                    }
-                }
-            }
-            _slots.Insert(i, slot);
-        }
+        public void AddSlot(TimetableSpan slot) => _slots.Add(slot);
 
-        public bool RemoveSlot(TimetableSlot slot)
-        {
-            return _slots.Remove(slot);
-        }
+        public bool RemoveSlot(TimetableSpan slot) => _slots.Remove(slot);
 
         #endregion
     }

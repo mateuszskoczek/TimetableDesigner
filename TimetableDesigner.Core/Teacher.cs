@@ -12,6 +12,20 @@ namespace TimetableDesigner.Core
 
         public string Name { get; set; }
         public string Description { get; set; }
+        public IDictionary<TimetableDay, TimetableSpanCollection> AvailabilityHours { get; set; }
+
+        #endregion
+
+
+
+        #region CONSTRUCTORS
+
+        public Teacher()
+        {
+            Name = string.Empty;
+            Description = string.Empty;
+            AvailabilityHours = new Dictionary<TimetableDay, TimetableSpanCollection>();
+        }
 
         #endregion
     }

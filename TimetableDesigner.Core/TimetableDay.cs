@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
-    public struct TimetableDay
+    [Serializable]
+    public class TimetableDay
     {
         #region PROPERTIES
 

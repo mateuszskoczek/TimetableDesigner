@@ -24,7 +24,7 @@ namespace TimetableDesigner.ViewModels.Models
         public TimetableTemplate TimetableTemplate => _timetableTemplate;
 
         public ObservableCollection<TimetableDay> Days => new ObservableCollection<TimetableDay>(_timetableTemplate.Days);
-        public ObservableCollection<TimetableSlot> Slots => new ObservableCollection<TimetableSlot>(_timetableTemplate.Slots);
+        public ObservableCollection<TimetableSpan> Slots => new ObservableCollection<TimetableSpan>(_timetableTemplate.Slots);
 
         #endregion
 
@@ -55,13 +55,13 @@ namespace TimetableDesigner.ViewModels.Models
             NotifyPropertyChanged(nameof(Days));
         }
 
-        public void AddSlot(TimetableSlot slot)
+        public void AddSlot(TimetableSpan slot)
         {
             _timetableTemplate.AddSlot(slot);
             NotifyPropertyChanged(nameof(Slots));
         }
 
-        public void RemoveSlot(TimetableSlot slot)
+        public void RemoveSlot(TimetableSpan slot)
         {
             _timetableTemplate.RemoveSlot(slot);
             NotifyPropertyChanged(nameof(Slots));

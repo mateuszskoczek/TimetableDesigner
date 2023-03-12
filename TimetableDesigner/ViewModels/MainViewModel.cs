@@ -45,6 +45,9 @@ namespace TimetableDesigner.ViewModels
         public ICommand NewClassroomCommand { get; set; }
         public ICommand EditClassroomCommand { get; set; }
         public ICommand RemoveClassroomCommand { get; set; }
+        public ICommand NewTeacherCommand { get; set; }
+        public ICommand EditTeacherCommand { get; set; }
+        public ICommand RemoveTeacherCommand { get; set; }
 
         public ObservableCollection<BaseTabViewModel> Tabs
         {
@@ -95,6 +98,9 @@ namespace TimetableDesigner.ViewModels
             NewClassroomCommand = new RelayCommand<object>(param => NewClassroom());
             EditClassroomCommand = new RelayCommand<ClassroomViewModel>(EditClassroom);
             RemoveClassroomCommand = new RelayCommand<ClassroomViewModel>(DeleteClassroom);
+            NewTeacherCommand = new RelayCommand<object>(param => NewTeacher());
+            EditTeacherCommand = new RelayCommand<TeacherViewModel>(EditTeacher);
+            RemoveTeacherCommand = new RelayCommand<TeacherViewModel>(DeleteTeacher);
 
             _tabs = new ObservableCollection<BaseTabViewModel>
             {
@@ -189,10 +195,8 @@ namespace TimetableDesigner.ViewModels
 
         private void EditClassroom(ClassroomViewModel classroomViewModel)
         {
-            Debug.WriteLine("textedit");
-            ClassroomEditTabViewModel classroomEdit = new ClassroomEditTabViewModel()
+            ClassroomEditTabViewModel classroomEdit = new ClassroomEditTabViewModel(classroomViewModel)
             {
-                Classroom = classroomViewModel,
                 TabTitle = $"{Resources.Tabs_ClassroomEdit}: {classroomViewModel.Name}",
                 IsTabClosable = true                
             };
@@ -202,10 +206,47 @@ namespace TimetableDesigner.ViewModels
 
         private void DeleteClassroom(ClassroomViewModel classroomViewModel)
         {
-            Debug.WriteLine("textdelete");
             if (Project is not null)
             {
                 Project.Classrooms.Remove(classroomViewModel);
+            }
+        }
+
+        private void NewTeacher()
+        {
+            if (Project is not null)
+            {
+                Teacher teacher = new Teacher()
+                {
+                    Name = Resources.Global_DefaultTeacherName
+                };
+                TeacherViewModel teacherVM = new TeacherViewModel(teacher);
+                Project.Teachers.Add(teacherVM);
+                EditTeacher(teacherVM);
+            }
+        }
+
+        private void EditTeacher(TeacherViewModel teacherViewModel)
+        {
+            if (Project is not null)
+            {
+                TeacherEditTabViewModel teacherEdit = new TeacherEditTabViewModel(teacherViewModel, Project.TimetableTemplate)
+                {
+                    Teacher = teacherViewModel,
+                    TabTitle = $"{Resources.Tabs_TeacherEdit}: {teacherViewModel.Name}",
+                    IsTabClosable = true
+                };
+                Tabs.Add(teacherEdit);
+                SelectedTab = teacherEdit;
+            }
+            
+        }
+
+        private void DeleteTeacher(TeacherViewModel teacherViewModel)
+        {
+            if (Project is not null)
+            {
+                Project.Teachers.Remove(teacherViewModel);
             }
         }
 

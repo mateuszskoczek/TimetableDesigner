@@ -46,7 +46,7 @@
                 </rib:RibbonGroupBox>
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Project_New}">
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewClassroom}" Icon="{StaticResource ClassroomAddImage}" Command="{Binding NewClassroomCommand}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewTeacher}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewTeacher}" Icon="{StaticResource TeacherAddImage}" Command="{Binding NewTeacherCommand}"/>
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewGroup}"/>
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewSubgroup}"/>
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewClass}"/>
@@ -76,9 +76,7 @@
                         <DataTemplate>
                             <TreeViewItem Header="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
                                 <TreeViewItem.InputBindings>
-                                    <MouseBinding Gesture="LeftDoubleClick"
-                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext.EditClassroomCommand}"
-                                                  CommandParameter="{Binding}"/>
+                                    <MouseBinding Gesture="LeftDoubleClick"/>
                                 </TreeViewItem.InputBindings>
                                 <TreeViewItem.ContextMenu>
                                     <ContextMenu>
@@ -89,6 +87,35 @@
                                         <Separator/>
                                         <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
                                                   Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveClassroomCommand}"
+                                                  CommandParameter="{Binding}"/>
+                                    </ContextMenu>
+                                </TreeViewItem.ContextMenu>
+                            </TreeViewItem>
+                        </DataTemplate>
+                    </TreeViewItem.ItemTemplate>
+                </TreeViewItem>
+                <TreeViewItem ItemsSource="{Binding Teachers}">
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{StaticResource TeacherImage}" Width="18" Height="18"/>
+                            <Label Content="{x:Static p:Resources.Main_Treeview_Teachers}"/>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+                    <TreeViewItem.ItemTemplate>
+                        <DataTemplate>
+                            <TreeViewItem Header="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
+                                <TreeViewItem.InputBindings>
+                                    <MouseBinding Gesture="LeftDoubleClick"/>
+                                </TreeViewItem.InputBindings>
+                                <TreeViewItem.ContextMenu>
+                                    <ContextMenu>
+                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"/>
+                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_Teachers_ContextMenu_Edit}" 
+                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTeacherCommand}"
+                                                  CommandParameter="{Binding}"/>
+                                        <Separator/>
+                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
+                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveTeacherCommand}"
                                                   CommandParameter="{Binding}"/>
                                     </ContextMenu>
                                 </TreeViewItem.ContextMenu>

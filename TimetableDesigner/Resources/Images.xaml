@@ -8,9 +8,12 @@
     <BitmapImage x:Key="ProjectSettingsImage" UriSource="Images/ProjectSettings.png"/>
     <BitmapImage x:Key="ClassroomImage" UriSource="Images/Classroom.png"/>
     <BitmapImage x:Key="ClassroomAddImage" UriSource="Images/ClassroomAdd.png"/>
+    <BitmapImage x:Key="TeacherImage" UriSource="Images/Teacher.png"/>
+    <BitmapImage x:Key="TeacherAddImage" UriSource="Images/TeacherAdd.png"/>
     <BitmapImage x:Key="OpenImage" UriSource="Images/Open.png"/>
     <BitmapImage x:Key="OpenRecentImage" UriSource="Images/OpenRecent.png"/>
     <BitmapImage x:Key="SaveImage" UriSource="Images/Save.png"/>
     <BitmapImage x:Key="SaveAsImage" UriSource="Images/SaveAs.png"/>
     <BitmapImage x:Key="NewImage" UriSource="Images/New.png"/>
+    <BitmapImage x:Key="RightArrowImage" UriSource="Images/RightArrow.png"/>
 </ResourceDictionary>

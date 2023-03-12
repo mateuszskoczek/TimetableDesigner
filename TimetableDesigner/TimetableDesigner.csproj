@@ -20,8 +20,11 @@
     <None Remove="Resources\Images\Project.png" />
     <None Remove="Resources\Images\ProjectSettings.png" />
     <None Remove="Resources\Images\Remove.png" />
+    <None Remove="Resources\Images\RightArrow.png" />
     <None Remove="Resources\Images\Save.png" />
     <None Remove="Resources\Images\SaveAs.png" />
+    <None Remove="Resources\Images\Teacher.png" />
+    <None Remove="Resources\Images\TeacherAdd.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,10 +55,19 @@
     <Content Include="Resources\Images\Remove.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Images\RightArrow.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Images\Save.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\SaveAs.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Teacher.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\TeacherAdd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -67,6 +79,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TimetableDesigner.Core\TimetableDesigner.Core.csproj" />
+    <ProjectReference Include="..\TimetableDesigner.Customs\TimetableDesigner.Customs.csproj" />
     <ProjectReference Include="..\TimetableDesigner.MessageBox\TimetableDesigner.MessageBox.csproj" />
   </ItemGroup>
 

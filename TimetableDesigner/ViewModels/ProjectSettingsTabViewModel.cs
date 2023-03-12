@@ -73,14 +73,14 @@ namespace TimetableDesigner.ViewModels
 
         #region CONSTRUCTORS
 
-        public ProjectSettingsTabViewModel()
+        public ProjectSettingsTabViewModel() : base()
         {
             Project = new ProjectViewModel(new Project());
 
             AddDayCommand = new RelayCommand<object>(param => AddDay());
             AddSlotCommand = new RelayCommand<object>(param => AddSlot());
             RemoveDayCommand = new RelayCommand<TimetableDay>(RemoveDay);
-            RemoveSlotCommand = new RelayCommand<TimetableSlot>(RemoveSlot);
+            RemoveSlotCommand = new RelayCommand<TimetableSpan>(RemoveSlot);
 
             _newDayName = string.Empty;
             _newSlotFrom = new DateTime(1, 1, 1, 8, 0, 0);
@@ -118,7 +118,7 @@ namespace TimetableDesigner.ViewModels
 
                 try
                 {
-                    Project.TimetableTemplate.AddSlot(new TimetableSlot(from, to));
+                    Project.TimetableTemplate.AddSlot(new TimetableSpan(from, to));
 
                     double delta = (to - from).TotalMinutes;
                     DateTime newFrom = NewSlotTo.Value;
@@ -133,7 +133,7 @@ namespace TimetableDesigner.ViewModels
             }
         }
 
-        private void RemoveSlot(TimetableSlot slot) => Project.TimetableTemplate.RemoveSlot(slot);
+        private void RemoveSlot(TimetableSpan slot) => Project.TimetableTemplate.RemoveSlot(slot);
 
         #endregion
     }

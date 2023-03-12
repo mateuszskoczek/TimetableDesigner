@@ -3,7 +3,7 @@
 namespace TimetableDesigner.Core
 {
     [Serializable]
-    public struct TimetableSlot
+    public class TimetableSpan
     {
         #region PROPERTIES
 
@@ -16,7 +16,7 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public TimetableSlot(TimeOnly from, TimeOnly to)
+        public TimetableSpan(TimeOnly from, TimeOnly to)
         {
             if (to <= from)
             {
@@ -33,29 +33,29 @@ namespace TimetableDesigner.Core
 
         #region PUBLIC METHODS
 
-        internal TimetableSlotsCollision CheckCollision(TimetableSlot slot)
+        internal TimetableSpansCollision CheckCollision(TimetableSpan slot)
         {
             if (slot.To <= this.From)
             {
-                return TimetableSlotsCollision.CheckedSlotBefore;
+                return TimetableSpansCollision.CheckedSlotBefore;
             }
             else if (this.To <= slot.From) 
             {
-                return TimetableSlotsCollision.CheckedSlotAfter;
+                return TimetableSpansCollision.CheckedSlotAfter;
             }
             else
             {
                 if (this.From < slot.From && slot.To < this.To)
                 {
-                    return TimetableSlotsCollision.CheckedSlotIn;
+                    return TimetableSpansCollision.CheckedSlotIn;
                 }
                 else if (this.From < slot.From && slot.From < this.To && this.To < slot.To)
                 {
-                    return TimetableSlotsCollision.CheckedSlotFromIn;
+                    return TimetableSpansCollision.CheckedSlotFromIn;
                 }
                 else if (slot.From < this.From && this.From < slot.To && slot.To < this.To)
                 {
-                    return TimetableSlotsCollision.CheckedSlotToIn;
+                    return TimetableSpansCollision.CheckedSlotToIn;
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace TimetableDesigner.Core
             }
         }
 
-        public override bool Equals(object? obj) => obj is TimetableSlot slot && From == slot.From && To == slot.To;
+        public override bool Equals(object? obj) => obj is TimetableSpan slot && From == slot.From && To == slot.To;
 
         public override int GetHashCode() => HashCode.Combine(From, To);
 

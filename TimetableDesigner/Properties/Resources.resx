@@ -135,6 +135,9 @@
   <data name="Global.DefaultProjectName" xml:space="preserve">
     <value>New project</value>
   </data>
+  <data name="Global.DefaultTeacherName" xml:space="preserve">
+    <value>New teacher</value>
+  </data>
   <data name="Global.NoProjectLoadedTitle" xml:space="preserve">
     <value>no project loaded</value>
   </data>
@@ -204,6 +207,12 @@
   <data name="Main.Treeview.ContextMenu.Remove" xml:space="preserve">
     <value>Remove</value>
   </data>
+  <data name="Main.Treeview.Teachers" xml:space="preserve">
+    <value>Teachers</value>
+  </data>
+  <data name="Main.Treeview.Teachers.ContextMenu.Edit" xml:space="preserve">
+    <value>Edit teacher</value>
+  </data>
   <data name="MessageBox.Error" xml:space="preserve">
     <value>Error</value>
   </data>
@@ -240,7 +249,25 @@
   <data name="Tabs.ProjectSettings" xml:space="preserve">
     <value>Project settings</value>
   </data>
+  <data name="Tabs.TeacherEdit" xml:space="preserve">
+    <value>Teacher editing</value>
+  </data>
   <data name="Tabs.Welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="TeacherEdit.AvailabilityHours" xml:space="preserve">
+    <value>Availability hours</value>
+  </data>
+  <data name="TeacherEdit.Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="TeacherEdit.Message.FromHigherThanTo" xml:space="preserve">
+    <value>"From" value is higher or equal to "To" value</value>
+  </data>
+  <data name="TeacherEdit.Message.HourCollision" xml:space="preserve">
+    <value>Hour collide with another hour</value>
+  </data>
+  <data name="TeacherEdit.Name" xml:space="preserve">
+    <value>Name</value>
   </data>
 </root>

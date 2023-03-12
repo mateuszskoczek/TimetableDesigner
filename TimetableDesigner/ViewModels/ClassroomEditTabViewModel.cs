@@ -42,7 +42,7 @@ namespace TimetableDesigner.ViewModels
         public ClassroomEditTabViewModel() : this(new ClassroomViewModel(new Core.Classroom()))
         { }
 
-        public ClassroomEditTabViewModel(ClassroomViewModel classroom)
+        public ClassroomEditTabViewModel(ClassroomViewModel classroom) : base()
         {
             _classroom = classroom;
         }

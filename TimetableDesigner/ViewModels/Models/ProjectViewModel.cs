@@ -61,6 +61,7 @@ namespace TimetableDesigner.ViewModels.Models
         }
         public TimetableTemplateViewModel TimetableTemplate { get; set; }
         public ObservableCollection<ClassroomViewModel> Classrooms { get; set; }
+        public ObservableCollection<TeacherViewModel> Teachers { get; set; }
 
         #endregion
 
@@ -76,6 +77,9 @@ namespace TimetableDesigner.ViewModels.Models
 
             Classrooms = new ObservableCollection<ClassroomViewModel>();
             Classrooms.CollectionChanged += Classrooms_CollectionChanged;
+
+            Teachers = new ObservableCollection<TeacherViewModel>();
+            Teachers.CollectionChanged += Teachers_CollectionChanged;
         }
 
         #endregion
@@ -102,6 +106,28 @@ namespace TimetableDesigner.ViewModels.Models
                 foreach (ClassroomViewModel vm in added)
                 {
                     _project.Classrooms.Add(vm.Classroom);
+                }
+            }
+        }
+
+        private void Teachers_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            IList<TeacherViewModel>? added = e.NewItems as IList<TeacherViewModel>;
+            IList<TeacherViewModel>? removed = e.OldItems as IList<TeacherViewModel>;
+
+            if (removed is not null)
+            {
+                foreach (TeacherViewModel vm in removed)
+                {
+                    _project.Teachers.Remove(vm.Teacher);
+                }
+            }
+
+            if (added is not null)
+            {
+                foreach (TeacherViewModel vm in added)
+                {
+                    _project.Teachers.Add(vm.Teacher);
                 }
             }
         }

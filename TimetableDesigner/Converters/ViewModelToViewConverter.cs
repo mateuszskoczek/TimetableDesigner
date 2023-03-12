@@ -23,6 +23,7 @@ namespace TimetableDesigner.Converters
             { typeof(WelcomeTabViewModel), typeof(WelcomeTabView) },
             { typeof(ProjectSettingsTabViewModel), typeof(ProjectSettingsTabView) },
             { typeof(ClassroomEditTabViewModel), typeof(ClassroomEditTabView) },
+            { typeof(TeacherEditTabViewModel), typeof(TeacherEditTabView) },
         };
 
         #endregion

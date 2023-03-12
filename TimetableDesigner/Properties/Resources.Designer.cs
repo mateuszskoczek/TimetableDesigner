@@ -115,6 +115,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New teacher.
+        /// </summary>
+        public static string Global_DefaultTeacherName {
+            get {
+                return ResourceManager.GetString("Global.DefaultTeacherName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no project loaded.
         /// </summary>
         public static string Global_NoProjectLoadedTitle {
@@ -322,6 +331,24 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Teachers.
+        /// </summary>
+        public static string Main_Treeview_Teachers {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Teachers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit teacher.
+        /// </summary>
+        public static string Main_Treeview_Teachers_ContextMenu_Edit {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Teachers.ContextMenu.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string MessageBox_Error {
@@ -430,11 +457,65 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Teacher editing.
+        /// </summary>
+        public static string Tabs_TeacherEdit {
+            get {
+                return ResourceManager.GetString("Tabs.TeacherEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome.
         /// </summary>
         public static string Tabs_Welcome {
             get {
                 return ResourceManager.GetString("Tabs.Welcome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Availability hours.
+        /// </summary>
+        public static string TeacherEdit_AvailabilityHours {
+            get {
+                return ResourceManager.GetString("TeacherEdit.AvailabilityHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string TeacherEdit_Description {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;From&quot; value is higher or equal to &quot;To&quot; value.
+        /// </summary>
+        public static string TeacherEdit_Message_FromHigherThanTo {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Message.FromHigherThanTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hour collide with another hour.
+        /// </summary>
+        public static string TeacherEdit_Message_HourCollision {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Message.HourCollision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string TeacherEdit_Name {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Name", resourceCulture);
             }
         }
     }
