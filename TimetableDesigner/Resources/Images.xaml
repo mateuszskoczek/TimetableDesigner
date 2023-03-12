@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:System;assembly=mscorlib">
+    <BitmapImage x:Key="CloseImage" UriSource="Images/Close.png"/>
+    <BitmapImage x:Key="AddImage" UriSource="Images/Add.png"/>
+    <BitmapImage x:Key="RemoveImage" UriSource="Images/Remove.png"/>
+    <BitmapImage x:Key="ProjectImage" UriSource="Images/Project.png"/>
+    <BitmapImage x:Key="ProjectSettingsImage" UriSource="Images/ProjectSettings.png"/>
+    <BitmapImage x:Key="ClassroomImage" UriSource="Images/Classroom.png"/>
+    <BitmapImage x:Key="ClassroomAddImage" UriSource="Images/ClassroomAdd.png"/>
+    <BitmapImage x:Key="OpenImage" UriSource="Images/Open.png"/>
+    <BitmapImage x:Key="OpenRecentImage" UriSource="Images/OpenRecent.png"/>
+    <BitmapImage x:Key="SaveImage" UriSource="Images/Save.png"/>
+    <BitmapImage x:Key="SaveAsImage" UriSource="Images/SaveAs.png"/>
+    <BitmapImage x:Key="NewImage" UriSource="Images/New.png"/>
+</ResourceDictionary>

@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner", "TimetableDesigner\TimetableDesigner.csproj", "{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Core", "TimetableDesigner.Core\TimetableDesigner.Core.csproj", "{A00B17BE-238D-4241-BECC-30119F8CBEE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Tests", "TimetableDesigner.Tests\TimetableDesigner.Tests.csproj", "{A9B4DB89-A007-472A-9C80-B6340458AC1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableDesigner.MessageBox", "TimetableDesigner.MessageBox\TimetableDesigner.MessageBox.csproj", "{95992646-6D81-4FF4-885E-8F0BE2312D54}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Debug|x64.ActiveCfg = Debug|x64
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Debug|x64.Build.0 = Debug|x64
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Release|x64.ActiveCfg = Release|x64
+		{739E5B4E-09D0-468C-9FA0-4BB6D89C1FE0}.Release|x64.Build.0 = Release|x64
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Debug|x64.Build.0 = Debug|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Release|x64.ActiveCfg = Release|Any CPU
+		{A00B17BE-238D-4241-BECC-30119F8CBEE0}.Release|x64.Build.0 = Release|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Debug|x64.Build.0 = Debug|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|x64.ActiveCfg = Release|Any CPU
+		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|x64.Build.0 = Release|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|x64.Build.0 = Debug|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|x64.ActiveCfg = Release|Any CPU
+		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {948AE685-3476-4374-9ADE-9F57FDE2D8D7}
+	EndGlobalSection
+EndGlobal
