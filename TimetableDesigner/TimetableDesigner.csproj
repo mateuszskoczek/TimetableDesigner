@@ -9,11 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ViewModels\ProjectSettingsTabViewModel.cs" />
+    <Compile Remove="ViewModels\TeacherEditTabViewModel.cs" />
+    <Compile Remove="Views\ProjectSettingsTabView.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\Images\Add.png" />
     <None Remove="Resources\Images\Classroom.png" />
     <None Remove="Resources\Images\ClassroomAdd.png" />
     <None Remove="Resources\Images\Close.png" />
     <None Remove="Resources\Images\CloseButtonImage.png" />
+    <None Remove="Resources\Images\Group.png" />
+    <None Remove="Resources\Images\GroupAdd.png" />
     <None Remove="Resources\Images\New.png" />
     <None Remove="Resources\Images\Open.png" />
     <None Remove="Resources\Images\OpenRecent.png" />
@@ -28,6 +36,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Views\ProjectSettingsTabView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Resources\Images\Classroom.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -35,6 +47,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\Close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Group.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GroupAdd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\New.png">
@@ -80,7 +98,6 @@
   <ItemGroup>
     <ProjectReference Include="..\TimetableDesigner.Core\TimetableDesigner.Core.csproj" />
     <ProjectReference Include="..\TimetableDesigner.Customs\TimetableDesigner.Customs.csproj" />
-    <ProjectReference Include="..\TimetableDesigner.MessageBox\TimetableDesigner.MessageBox.csproj" />
   </ItemGroup>
 
   <ItemGroup>

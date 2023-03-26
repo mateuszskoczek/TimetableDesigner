@@ -88,6 +88,24 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Basics.
+        /// </summary>
+        public static string ClassroomEdit_Groups_Basics {
+            get {
+                return ResourceManager.GetString("ClassroomEdit.Groups.Basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Capacity.
+        /// </summary>
+        public static string ClassroomEdit_Groups_Capacity {
+            get {
+                return ResourceManager.GetString("ClassroomEdit.Groups.Capacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string ClassroomEdit_Name {
@@ -102,6 +120,15 @@ namespace TimetableDesigner.Properties {
         public static string Global_DefaultClassroomName {
             get {
                 return ResourceManager.GetString("Global.DefaultClassroomName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New group.
+        /// </summary>
+        public static string Global_DefaultGroupName {
+            get {
+                return ResourceManager.GetString("Global.DefaultGroupName", resourceCulture);
             }
         }
         
@@ -133,11 +160,119 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string GroupEdit_DeleteSubgroup {
+            get {
+                return ResourceManager.GetString("GroupEdit.DeleteSubgroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string GroupEdit_Description {
+            get {
+                return ResourceManager.GetString("GroupEdit.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basics.
+        /// </summary>
+        public static string GroupEdit_Groups_Basics {
+            get {
+                return ResourceManager.GetString("GroupEdit.Groups.Basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subgroups.
+        /// </summary>
+        public static string GroupEdit_Groups_Subgroups {
+            get {
+                return ResourceManager.GetString("GroupEdit.Groups.Subgroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups..
+        /// </summary>
+        public static string GroupEdit_Message_SubgroupDelete {
+            get {
+                return ResourceManager.GetString("GroupEdit.Message.SubgroupDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string GroupEdit_Name {
+            get {
+                return ResourceManager.GetString("GroupEdit.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New subgroup name.
+        /// </summary>
+        public static string GroupEdit_NewSubgroupLabel {
+            get {
+                return ResourceManager.GetString("GroupEdit.NewSubgroupLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subgroups.
+        /// </summary>
+        public static string GroupEdit_Subgroups {
+            get {
+                return ResourceManager.GetString("GroupEdit.Subgroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project is loaded. Do you want to save?.
         /// </summary>
         public static string Main_Message_SaveCurrentProject {
             get {
                 return ResourceManager.GetString("Main.Message.SaveCurrentProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string Main_Ribbon_Export {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timetable.
+        /// </summary>
+        public static string Main_Ribbon_Export_Timetable {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Export.Timetable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PDF.
+        /// </summary>
+        public static string Main_Ribbon_Export_Timetable_PDF {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Export.Timetable.PDF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XLS.
+        /// </summary>
+        public static string Main_Ribbon_Export_Timetable_XLS {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Export.Timetable.XLS", resourceCulture);
             }
         }
         
@@ -219,6 +354,42 @@ namespace TimetableDesigner.Properties {
         public static string Main_Ribbon_Project {
             get {
                 return ResourceManager.GetString("Main.Ribbon.Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import.
+        /// </summary>
+        public static string Main_Ribbon_Project_Import {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Project.Import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import classrooms.
+        /// </summary>
+        public static string Main_Ribbon_Project_Import_ImportClassrooms {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportClassrooms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import groups.
+        /// </summary>
+        public static string Main_Ribbon_Project_Import_ImportGroups {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportGroups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import teachers.
+        /// </summary>
+        public static string Main_Ribbon_Project_Import_ImportTeachers {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportTeachers", resourceCulture);
             }
         }
         
@@ -331,6 +502,33 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Groups.
+        /// </summary>
+        public static string Main_Treeview_Groups {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit group.
+        /// </summary>
+        public static string Main_Treeview_Groups_ContextMenu_Edit {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Groups.ContextMenu.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups..
+        /// </summary>
+        public static string Main_Treeview_Subgroups_Message_Remove {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Subgroups.Message.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Teachers.
         /// </summary>
         public static string Main_Treeview_Teachers {
@@ -354,6 +552,15 @@ namespace TimetableDesigner.Properties {
         public static string MessageBox_Error {
             get {
                 return ResourceManager.GetString("MessageBox.Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question.
+        /// </summary>
+        public static string MessageBox_Question {
+            get {
+                return ResourceManager.GetString("MessageBox.Question", resourceCulture);
             }
         }
         
@@ -448,6 +655,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group editing.
+        /// </summary>
+        public static string Tabs_GroupEdit {
+            get {
+                return ResourceManager.GetString("Tabs.GroupEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project settings.
         /// </summary>
         public static string Tabs_ProjectSettings {
@@ -475,11 +691,11 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Availability hours.
+        ///   Looks up a localized string similar to Days.
         /// </summary>
-        public static string TeacherEdit_AvailabilityHours {
+        public static string TeacherEdit_Days {
             get {
-                return ResourceManager.GetString("TeacherEdit.AvailabilityHours", resourceCulture);
+                return ResourceManager.GetString("TeacherEdit.Days", resourceCulture);
             }
         }
         
@@ -489,6 +705,33 @@ namespace TimetableDesigner.Properties {
         public static string TeacherEdit_Description {
             get {
                 return ResourceManager.GetString("TeacherEdit.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Availability hours.
+        /// </summary>
+        public static string TeacherEdit_Groups_AvailabilityHours {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Groups.AvailabilityHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basics.
+        /// </summary>
+        public static string TeacherEdit_Groups_Basics {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Groups.Basics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hours.
+        /// </summary>
+        public static string TeacherEdit_Hours {
+            get {
+                return ResourceManager.GetString("TeacherEdit.Hours", resourceCulture);
             }
         }
         

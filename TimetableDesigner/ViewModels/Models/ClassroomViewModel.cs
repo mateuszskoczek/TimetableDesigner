@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TimetableDesigner.Core;
-using TimetableDesigner.ViewModels.Base;
 
 namespace TimetableDesigner.ViewModels.Models
 {
-    public class ClassroomViewModel : BaseViewModel
+    public class ClassroomViewModel : BaseModelViewModel
     {
         #region FIELDS
 

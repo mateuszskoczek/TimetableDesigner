@@ -49,8 +49,8 @@ namespace TimetableDesigner.Core
                 {
                     switch (item.CheckCollision(_list.ElementAt(i)))
                     {
-                        case TimetableSpansCollision.CheckedSlotBefore: i++; break;
-                        case TimetableSpansCollision.CheckedSlotAfter: done ^= true; break;
+                        case TimetableSpanCollision.CheckedSlotBefore: i++; break;
+                        case TimetableSpanCollision.CheckedSlotAfter: done ^= true; break;
                         default: throw new ArgumentException("Slot collide with another slot");
                     }
                 }

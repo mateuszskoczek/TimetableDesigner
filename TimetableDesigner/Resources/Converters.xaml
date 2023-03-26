@@ -4,4 +4,5 @@
     <c:ViewModelToViewConverter x:Key="ViewModelToViewConverter"/>
     <c:IsNullToVisibilityConverter x:Key="IsNullToVisibilityConverter"/>
     <c:IsNotNullToBooleanConverter x:Key="IsNotNullToBooleanConverter"/>
+    <c:IntegerAddConstantConverter x:Key="IntegerAddConstantConverter"/>
 </ResourceDictionary>

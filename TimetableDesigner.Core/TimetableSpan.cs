@@ -33,29 +33,29 @@ namespace TimetableDesigner.Core
 
         #region PUBLIC METHODS
 
-        internal TimetableSpansCollision CheckCollision(TimetableSpan slot)
+        internal TimetableSpanCollision CheckCollision(TimetableSpan slot)
         {
             if (slot.To <= this.From)
             {
-                return TimetableSpansCollision.CheckedSlotBefore;
+                return TimetableSpanCollision.CheckedSlotBefore;
             }
             else if (this.To <= slot.From) 
             {
-                return TimetableSpansCollision.CheckedSlotAfter;
+                return TimetableSpanCollision.CheckedSlotAfter;
             }
             else
             {
                 if (this.From < slot.From && slot.To < this.To)
                 {
-                    return TimetableSpansCollision.CheckedSlotIn;
+                    return TimetableSpanCollision.CheckedSlotIn;
                 }
                 else if (this.From < slot.From && slot.From < this.To && this.To < slot.To)
                 {
-                    return TimetableSpansCollision.CheckedSlotFromIn;
+                    return TimetableSpanCollision.CheckedSlotFromIn;
                 }
                 else if (slot.From < this.From && this.From < slot.To && slot.To < this.To)
                 {
-                    return TimetableSpansCollision.CheckedSlotToIn;
+                    return TimetableSpanCollision.CheckedSlotToIn;
                 }
                 else
                 {

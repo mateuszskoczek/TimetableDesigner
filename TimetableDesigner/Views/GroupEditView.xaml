@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="TimetableDesigner.Views.GroupEditView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:p = "clr-namespace:TimetableDesigner.Properties"
+             xmlns:vm="clr-namespace:TimetableDesigner.ViewModels.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimetableDesigner.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:GroupEditViewModel/>
+    </UserControl.DataContext>
+    <ScrollViewer>
+        <StackPanel>
+            <GroupBox Header="{x:Static p:Resources.GroupEdit_Groups_Basics}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="{x:Static p:Resources.GroupEdit_Name}"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Margin="5" Text="{Binding Name}" MaxLines="1"/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="{x:Static p:Resources.GroupEdit_Description}"/>
+                    <TextBox Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Margin="5" MinLines="3" Text="{Binding Group.Description}"/>
+                </Grid>
+            </GroupBox>
+            <GroupBox Header="{x:Static p:Resources.GroupEdit_Groups_Subgroups}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="5" MinHeight="100" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Subgroups}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Key.Name}" 
+                                      IsChecked="{Binding Value}" 
+                                      Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext}"
+                                      Command="{Binding DataContext.EditSubgroupAssignmentCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" 
+                                      CommandParameter="{Binding Key}">
+                                    <CheckBox.ContextMenu>
+                                        <ContextMenu>
+                                            <MenuItem Header="{x:Static p:Resources.GroupEdit_DeleteSubgroup}"
+                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.DeleteSubgroupCommand}"
+                                                  CommandParameter="{Binding Key}"/>
+                                        </ContextMenu>
+                                    </CheckBox.ContextMenu>
+                                </CheckBox>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Label Grid.Row="2" Grid.Column="0" Margin="5" Content="{x:Static p:Resources.GroupEdit_NewSubgroupLabel}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" MaxLines="1" Margin="5" Text="{Binding NewSubgroupName}"/>
+                    <Button Grid.Row="2" Grid.Column="2" Margin="5" Command="{Binding AddSubgroupCommand}">
+                        <Image Source="{StaticResource AddImage}" Width="20" Height="20"/>
+                    </Button>
+                </Grid>
+            </GroupBox>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

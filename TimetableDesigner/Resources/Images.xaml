@@ -16,4 +16,6 @@
     <BitmapImage x:Key="SaveAsImage" UriSource="Images/SaveAs.png"/>
     <BitmapImage x:Key="NewImage" UriSource="Images/New.png"/>
     <BitmapImage x:Key="RightArrowImage" UriSource="Images/RightArrow.png"/>
+    <BitmapImage x:Key="GroupImage" UriSource="Images/Group.png"/>
+    <BitmapImage x:Key="GroupAddImage" UriSource="Images/GroupAdd.png"/>
 </ResourceDictionary>

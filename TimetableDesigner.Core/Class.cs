@@ -11,10 +11,23 @@ namespace TimetableDesigner.Core
         #region PROPERTIES
 
         public string Name { get; set; }
-        public string Description { get; set; }
-        public Teacher Teacher { get; set; }
-        public Subgroup Subgroup { get; set; }
-        public Classroom Classroom { get; set; }
+        public Teacher? Teacher { get; set; }
+        public IGroup? Group { get; set; }
+        public Classroom? Classroom { get; set; }
+
+        #endregion
+
+
+
+        #region CONSTRUCTORS
+
+        public Class()
+        {
+            Name = string.Empty;
+            Teacher = null;
+            Group = null;
+            Classroom = null;
+        }
 
         #endregion
     }

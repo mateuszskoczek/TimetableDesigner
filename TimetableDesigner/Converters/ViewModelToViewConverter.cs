@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using TimetableDesigner.ViewModels;
-using TimetableDesigner.ViewModels.Base;
+using TimetableDesigner.ViewModels.Views;
 using TimetableDesigner.Views;
 
 namespace TimetableDesigner.Converters
@@ -20,10 +20,11 @@ namespace TimetableDesigner.Converters
         private static readonly Dictionary<Type, Type> _viewModelViewPairs = new Dictionary<Type, Type>
         {
             { typeof(MainViewModel), typeof(MainWindow) },
-            { typeof(WelcomeTabViewModel), typeof(WelcomeTabView) },
-            { typeof(ProjectSettingsTabViewModel), typeof(ProjectSettingsTabView) },
-            { typeof(ClassroomEditTabViewModel), typeof(ClassroomEditTabView) },
-            { typeof(TeacherEditTabViewModel), typeof(TeacherEditTabView) },
+            { typeof(WelcomeViewModel), typeof(WelcomeView) },
+            { typeof(ProjectSettingsViewModel), typeof(ProjectSettingsView) },
+            { typeof(ClassroomEditViewModel), typeof(ClassroomEditView) },
+            { typeof(TeacherEditViewModel), typeof(TeacherEditView) },
+            { typeof(GroupEditViewModel), typeof(GroupEditView) },
         };
 
         #endregion
@@ -34,7 +35,7 @@ namespace TimetableDesigner.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            BaseViewModel? viewModel = value as BaseViewModel;
+            BaseViewViewModel? viewModel = value as BaseViewViewModel;
             if (viewModel is not null)
             {
                 Type view = _viewModelViewPairs[viewModel.GetType()];

@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Core", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Tests", "TimetableDesigner.Tests\TimetableDesigner.Tests.csproj", "{A9B4DB89-A007-472A-9C80-B6340458AC1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.MessageBox", "TimetableDesigner.MessageBox\TimetableDesigner.MessageBox.csproj", "{95992646-6D81-4FF4-885E-8F0BE2312D54}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableDesigner.Customs", "TimetableDesigner.Customs\TimetableDesigner.Customs.csproj", "{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Customs", "TimetableDesigner.Customs\TimetableDesigner.Customs.csproj", "{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,14 +43,6 @@ Global
 		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|x64.ActiveCfg = Release|Any CPU
 		{A9B4DB89-A007-472A-9C80-B6340458AC1B}.Release|x64.Build.0 = Release|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Debug|x64.Build.0 = Debug|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|x64.ActiveCfg = Release|Any CPU
-		{95992646-6D81-4FF4-885E-8F0BE2312D54}.Release|x64.Build.0 = Release|Any CPU
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Debug|x64.ActiveCfg = Debug|Any CPU

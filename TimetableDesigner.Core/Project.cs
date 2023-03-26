@@ -33,8 +33,10 @@ namespace TimetableDesigner.Core
             Author = string.Empty;
             Description = string.Empty;
             TimetableTemplate = new TimetableTemplate();
-            Classrooms = new List<Classroom>();
-            Teachers = new List<Teacher>();
+            Classrooms = new HashSet<Classroom>();
+            Teachers = new HashSet<Teacher>();
+            Groups = new HashSet<Group>();
+            Subgroups = new HashSet<Subgroup>();
         }
 
         #endregion

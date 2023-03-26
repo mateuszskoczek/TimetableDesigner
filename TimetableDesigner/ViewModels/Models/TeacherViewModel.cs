@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TimetableDesigner.Core;
-using TimetableDesigner.Customs.Collections;
-using TimetableDesigner.ViewModels.Base;
+using TimetableDesigner.Customs;
 
 namespace TimetableDesigner.ViewModels.Models
 {
-    public class TeacherViewModel : BaseViewModel
+    public class TeacherViewModel : BaseModelViewModel
     {
         #region FIELDS
 
