@@ -135,6 +135,42 @@
   <data name="ClassroomEdit.Name" xml:space="preserve">
     <value>Name</value>
   </data>
+  <data name="Errors.ClassroomBusy" xml:space="preserve">
+    <value>During this class, other classes are taking place in this classroom</value>
+  </data>
+  <data name="Errors.ClassroomNotAssigned" xml:space="preserve">
+    <value>Class has no assigned classroom</value>
+  </data>
+  <data name="Errors.GroupAllBusy" xml:space="preserve">
+    <value>During this class, group, to which selected subgroup is assigned, already has other classes</value>
+  </data>
+  <data name="Errors.GroupBusy" xml:space="preserve">
+    <value>During this class, the selected group already has other classes</value>
+  </data>
+  <data name="Errors.GroupNotAssigned" xml:space="preserve">
+    <value>Class has no assigned group</value>
+  </data>
+  <data name="Errors.GroupPartBusy" xml:space="preserve">
+    <value>During this class, part of selected group already has other classes in subgroup</value>
+  </data>
+  <data name="Errors.SlotNotAssigned" xml:space="preserve">
+    <value>Class is not scheduled</value>
+  </data>
+  <data name="Errors.TeacherBusy" xml:space="preserve">
+    <value>During this class, the selected teacher conducts other classes</value>
+  </data>
+  <data name="Errors.TeacherNotAssigned" xml:space="preserve">
+    <value>Class has no assigned teacher</value>
+  </data>
+  <data name="Errors.TeacherNotAvailable" xml:space="preserve">
+    <value>Selected teacher is not available during the class</value>
+  </data>
+  <data name="Global.AllFiles" xml:space="preserve">
+    <value>All files</value>
+  </data>
+  <data name="Global.Classroom" xml:space="preserve">
+    <value>Classroom</value>
+  </data>
   <data name="Global.DefaultClassroomName" xml:space="preserve">
     <value>New classroom</value>
   </data>
@@ -147,8 +183,20 @@
   <data name="Global.DefaultTeacherName" xml:space="preserve">
     <value>New teacher</value>
   </data>
+  <data name="Global.Group" xml:space="preserve">
+    <value>Group</value>
+  </data>
   <data name="Global.NoProjectLoadedTitle" xml:space="preserve">
     <value>no project loaded</value>
+  </data>
+  <data name="Global.ProjectFiletypeDescription" xml:space="preserve">
+    <value>TimetableEditor project file</value>
+  </data>
+  <data name="Global.Subgroup" xml:space="preserve">
+    <value>Subgroup</value>
+  </data>
+  <data name="Global.Teacher" xml:space="preserve">
+    <value>Teacher</value>
   </data>
   <data name="GroupEdit.DeleteSubgroup" xml:space="preserve">
     <value>Delete</value>
@@ -174,8 +222,53 @@
   <data name="GroupEdit.Subgroups" xml:space="preserve">
     <value>Subgroups</value>
   </data>
+  <data name="Main.Errors.ClassName" xml:space="preserve">
+    <value>Class name</value>
+  </data>
+  <data name="Main.Errors.Day" xml:space="preserve">
+    <value>Day</value>
+  </data>
+  <data name="Main.Errors.Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Main.Errors.Slot" xml:space="preserve">
+    <value>Slot</value>
+  </data>
+  <data name="Main.Errors.Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
   <data name="Main.Message.SaveCurrentProject" xml:space="preserve">
     <value>Project is loaded. Do you want to save?</value>
+  </data>
+  <data name="Main.Ribbon.Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable" xml:space="preserve">
+    <value>Timetable</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule" xml:space="preserve">
+    <value>Autoschedule all unscheduled classes</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.FollowingClassesCouldNotBeScheduled" xml:space="preserve">
+    <value>Following classes could not be scheduled</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.More" xml:space="preserve">
+    <value>more</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.NoUnscheduledClasses" xml:space="preserve">
+    <value>There is no unscheduled classes</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.SuccessfullyScheduled" xml:space="preserve">
+    <value>Successfully scheduled classes</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitClassroom" xml:space="preserve">
+    <value>Classroom</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitGroup" xml:space="preserve">
+    <value>Group</value>
+  </data>
+  <data name="Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitTeacher" xml:space="preserve">
+    <value>Teacher</value>
   </data>
   <data name="Main.Ribbon.Export" xml:space="preserve">
     <value>Export</value>
@@ -192,16 +285,19 @@
   <data name="Main.Ribbon.File" xml:space="preserve">
     <value>File</value>
   </data>
-  <data name="Main.Ribbon.File.NewOpen" xml:space="preserve">
-    <value>New/Open</value>
-  </data>
-  <data name="Main.Ribbon.File.NewOpen.New" xml:space="preserve">
+  <data name="Main.Ribbon.File.New" xml:space="preserve">
     <value>New</value>
   </data>
-  <data name="Main.Ribbon.File.NewOpen.Open" xml:space="preserve">
+  <data name="Main.Ribbon.File.New.New" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="Main.Ribbon.File.Open" xml:space="preserve">
     <value>Open</value>
   </data>
-  <data name="Main.Ribbon.File.NewOpen.OpenRecent" xml:space="preserve">
+  <data name="Main.Ribbon.File.Open.Open" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Main.Ribbon.File.Open.OpenRecent" xml:space="preserve">
     <value>Open recent</value>
   </data>
   <data name="Main.Ribbon.File.Save" xml:space="preserve">
@@ -258,6 +354,9 @@
   <data name="Main.Treeview.Classrooms.ContextMenu.Edit" xml:space="preserve">
     <value>Edit classroom</value>
   </data>
+  <data name="Main.Treeview.Classrooms.Message.Remove" xml:space="preserve">
+    <value>Are you sure you want to delete this classroom. This operation is irreversible. Classroom will be unassigned for all classes.</value>
+  </data>
   <data name="Main.Treeview.ContextMenu.EditTimetable" xml:space="preserve">
     <value>Edit timetable</value>
   </data>
@@ -270,8 +369,11 @@
   <data name="Main.Treeview.Groups.ContextMenu.Edit" xml:space="preserve">
     <value>Edit group</value>
   </data>
+  <data name="Main.Treeview.Groups.Message.Remove" xml:space="preserve">
+    <value>Are you sure you want to delete this group. This operation is irreversible. Group will be unassigned for all classes.</value>
+  </data>
   <data name="Main.Treeview.Subgroups.Message.Remove" xml:space="preserve">
-    <value>Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups.</value>
+    <value>Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups and classes.</value>
   </data>
   <data name="Main.Treeview.Teachers" xml:space="preserve">
     <value>Teachers</value>
@@ -279,11 +381,20 @@
   <data name="Main.Treeview.Teachers.ContextMenu.Edit" xml:space="preserve">
     <value>Edit teacher</value>
   </data>
+  <data name="Main.Treeview.Teachers.Message.Remove" xml:space="preserve">
+    <value>Are you sure you want to delete this teacher. This operation is irreversible. Teacher will be unassigned for all classes.</value>
+  </data>
   <data name="MessageBox.Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="MessageBox.Information" xml:space="preserve">
+    <value>Information</value>
+  </data>
   <data name="MessageBox.Question" xml:space="preserve">
     <value>Question</value>
+  </data>
+  <data name="MessageBox.Warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
   <data name="ProjectSettings.Author" xml:space="preserve">
     <value>Author</value>
@@ -324,6 +435,9 @@
   <data name="Tabs.TeacherEdit" xml:space="preserve">
     <value>Teacher editing</value>
   </data>
+  <data name="Tabs.TimetableEdit" xml:space="preserve">
+    <value>Timetable editing</value>
+  </data>
   <data name="Tabs.Welcome" xml:space="preserve">
     <value>Welcome</value>
   </data>
@@ -350,5 +464,11 @@
   </data>
   <data name="TeacherEdit.Name" xml:space="preserve">
     <value>Name</value>
+  </data>
+  <data name="TimetableEditor.Autoschedule" xml:space="preserve">
+    <value>Autoschedule</value>
+  </data>
+  <data name="TimetableEditor.Unscheduled" xml:space="preserve">
+    <value>Unscheduled</value>
   </data>
 </root>

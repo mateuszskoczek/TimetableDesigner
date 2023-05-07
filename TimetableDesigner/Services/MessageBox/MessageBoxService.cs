@@ -34,6 +34,12 @@ namespace TimetableDesigner.Services.MessageBox
             }
         }
 
+        public void ShowWarning(string message) => ShowWarning(message, Resources.MessageBox_Warning);
+        public void ShowWarning(string message, string title) => System.Windows.Forms.MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        public void ShowInformation(string message) => ShowInformation(message, Resources.MessageBox_Information);
+        public void ShowInformation(string message, string title) => System.Windows.Forms.MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         #endregion
     }
 }

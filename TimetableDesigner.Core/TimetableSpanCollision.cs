@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
-    internal enum TimetableSpanCollision
+    public enum TimetableSpanCollision
     {
         CheckedSlotBefore,
         CheckedSlotAfter,

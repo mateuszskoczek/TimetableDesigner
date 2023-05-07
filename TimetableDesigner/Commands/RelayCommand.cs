@@ -39,10 +39,7 @@ namespace TimetableDesigner.Commands
         
         public bool CanExecute(object parameter) => _canExecute == null || _canExecute((T)parameter);
 
-        public void Execute(object parameter)
-        {
-            _execute((T)parameter);
-        }
+        public void Execute(object parameter) => _execute((T)parameter);
 
         #endregion
 

@@ -19,12 +19,13 @@ namespace TimetableDesigner.Converters
 
         private static readonly Dictionary<Type, Type> _viewModelViewPairs = new Dictionary<Type, Type>
         {
-            { typeof(MainViewModel), typeof(MainWindow) },
-            { typeof(WelcomeViewModel), typeof(WelcomeView) },
-            { typeof(ProjectSettingsViewModel), typeof(ProjectSettingsView) },
-            { typeof(ClassroomEditViewModel), typeof(ClassroomEditView) },
-            { typeof(TeacherEditViewModel), typeof(TeacherEditView) },
-            { typeof(GroupEditViewModel), typeof(GroupEditView) },
+            { typeof(MainWindowVM), typeof(MainWindow) },
+            { typeof(WelcomeViewVM), typeof(WelcomeView) },
+            { typeof(ProjectSettingsViewVM), typeof(ProjectSettingsView) },
+            { typeof(ClassroomEditorViewVM), typeof(ClassroomEditorView) },
+            { typeof(TeacherEditorViewVM), typeof(TeacherEditorView) },
+            { typeof(GroupEditorViewVM), typeof(GroupEditorView) },
+            { typeof(TimetableEditorViewVM), typeof(TimetableEditorView) },
         };
 
         #endregion
@@ -35,7 +36,7 @@ namespace TimetableDesigner.Converters
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            BaseViewViewModel? viewModel = value as BaseViewViewModel;
+            IViewVM? viewModel = value as IViewVM;
             if (viewModel is not null)
             {
                 Type view = _viewModelViewPairs[viewModel.GetType()];

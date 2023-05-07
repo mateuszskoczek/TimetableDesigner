@@ -9,9 +9,21 @@ namespace TimetableDesigner.Core
     [Serializable]
     public class TimetableDay
     {
+        #region FIELDS
+
+        private string _name;
+
+        #endregion
+
+
+
         #region PROPERTIES
 
-        public string Name { get; set; }
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
 
         #endregion
 
@@ -20,8 +32,8 @@ namespace TimetableDesigner.Core
         #region CONSTRUCTORS
 
         public TimetableDay(string name) 
-        { 
-            Name = name;
+        {
+            _name = name;
         }
 
         #endregion

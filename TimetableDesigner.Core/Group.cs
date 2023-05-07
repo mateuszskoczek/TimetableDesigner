@@ -6,13 +6,26 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
-    public class Group : IGroup
+    [Serializable]
+    public class Group : BaseGroup
     {
+        #region FIELDS
+
+        private string _description;
+        private HashSet<Subgroup> _assignedSubgroups;
+
+        #endregion
+
+
+
         #region PROPERTIES
 
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public ICollection<Subgroup> AssignedSubgroups { get; set; }
+        public string Description
+        {
+            get => _description;
+            set => _description = value;
+        }
+        public ICollection<Subgroup> AssignedSubgroups => _assignedSubgroups;
 
         #endregion
 
@@ -20,11 +33,10 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public Group()
+        public Group() : base()
         {
-            Name = string.Empty;
-            Description = string.Empty;
-            AssignedSubgroups = new HashSet<Subgroup>();
+            _description = string.Empty;
+            _assignedSubgroups = new HashSet<Subgroup>();
         }
 
         #endregion

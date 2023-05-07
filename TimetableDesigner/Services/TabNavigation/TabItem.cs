@@ -21,7 +21,7 @@ namespace TimetableDesigner.Services.TabNavigation
         private ImageSource _image;
         private string _title;
         private bool _isClosable;
-        private BaseViewViewModel _viewModel;
+        private IViewVM _viewModel;
 
         #endregion
 
@@ -65,7 +65,7 @@ namespace TimetableDesigner.Services.TabNavigation
                 }
             }
         }
-        public BaseViewViewModel ViewModel
+        public IViewVM ViewModel
         {
             get => _viewModel;
             set

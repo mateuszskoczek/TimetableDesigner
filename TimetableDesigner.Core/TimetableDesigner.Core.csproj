@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TimetableDesigner.Customs\TimetableDesigner.Customs.csproj" />
+  </ItemGroup>
+
 </Project>

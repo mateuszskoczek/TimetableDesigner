@@ -16,6 +16,12 @@ namespace TimetableDesigner.Services.MessageBox
         MessageBoxQuestionResult ShowQuestion(string message, bool hideCancelButton = false);
         MessageBoxQuestionResult ShowQuestion(string message, string title, bool hideCancelButton = false);
 
+        void ShowWarning(string message);
+        void ShowWarning(string message, string title);
+
+        void ShowInformation(string message);
+        void ShowInformation(string message, string title);
+
         #endregion
     }
 }

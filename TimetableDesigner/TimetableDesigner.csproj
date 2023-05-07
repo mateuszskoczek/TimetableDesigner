@@ -16,27 +16,84 @@
 
   <ItemGroup>
     <None Remove="Resources\Images\Add.png" />
+    <None Remove="Resources\Images\Autoschedule.png" />
     <None Remove="Resources\Images\Classroom.png" />
     <None Remove="Resources\Images\ClassroomAdd.png" />
+    <None Remove="Resources\Images\ClassroomBlack.png" />
+    <None Remove="Resources\Images\ClassroomGrey.png" />
+    <None Remove="Resources\Images\ClassroomWhite.png" />
+    <None Remove="Resources\Images\CloneBlack.png" />
+    <None Remove="Resources\Images\CloneWhite.png" />
     <None Remove="Resources\Images\Close.png" />
     <None Remove="Resources\Images\CloseButtonImage.png" />
+    <None Remove="Resources\Images\EditBlack.png" />
+    <None Remove="Resources\Images\EditGrey.png" />
+    <None Remove="Resources\Images\EditWhite.png" />
+    <None Remove="Resources\Images\Error.png" />
     <None Remove="Resources\Images\Group.png" />
     <None Remove="Resources\Images\GroupAdd.png" />
+    <None Remove="Resources\Images\GroupBlack.png" />
+    <None Remove="Resources\Images\GroupGrey.png" />
+    <None Remove="Resources\Images\GroupWhite.png" />
+    <None Remove="Resources\Images\Info.png" />
     <None Remove="Resources\Images\New.png" />
     <None Remove="Resources\Images\Open.png" />
     <None Remove="Resources\Images\OpenRecent.png" />
     <None Remove="Resources\Images\Project.png" />
     <None Remove="Resources\Images\ProjectSettings.png" />
     <None Remove="Resources\Images\Remove.png" />
+    <None Remove="Resources\Images\RemoveBlack.png" />
+    <None Remove="Resources\Images\RemoveGrey.png" />
+    <None Remove="Resources\Images\RemoveWhite.png" />
     <None Remove="Resources\Images\RightArrow.png" />
     <None Remove="Resources\Images\Save.png" />
     <None Remove="Resources\Images\SaveAs.png" />
     <None Remove="Resources\Images\Teacher.png" />
     <None Remove="Resources\Images\TeacherAdd.png" />
+    <None Remove="Resources\Images\TeacherBlack.png" />
+    <None Remove="Resources\Images\TeacherGrey.png" />
+    <None Remove="Resources\Images\TeacherWhite.png" />
+    <None Remove="Resources\Images\Warning.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Page Remove="Views\ProjectSettingsTabView.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Images\Autoschedule.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\ClassroomBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\ClassroomWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\CloneBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\CloneWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\EditBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\EditWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Error.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GroupBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\GroupWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -70,7 +127,10 @@
     <Content Include="Resources\Images\ProjectSettings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\Images\Remove.png">
+    <Content Include="Resources\Images\RemoveBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\RemoveWhite.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\RightArrow.png">
@@ -88,11 +148,23 @@
     <Content Include="Resources\Images\TeacherAdd.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Images\TeacherBlack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\TeacherWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Warning.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
     <PackageReference Include="Fluent.Ribbon" Version="9.0.4" />
+    <PackageReference Include="Microsoft.ML" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -117,6 +189,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -128,6 +205,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 
 </Project>

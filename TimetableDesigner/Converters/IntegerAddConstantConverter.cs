@@ -12,7 +12,7 @@ namespace TimetableDesigner.Converters
     {
         #region PUBLIC METHODS
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => (int)value + (int)parameter;
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture) => (int)value + int.Parse((string)parameter);
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => (int)value - (int)parameter;
 

@@ -9,42 +9,46 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.DataContext>
-        <vm:ProjectSettingsViewModel/>
+        <vm:ProjectSettingsViewVM/>
     </UserControl.DataContext>
-    <ScrollViewer>
-        <StackPanel>
-            <GroupBox Header="{x:Static p:Resources.ProjectSettings_Basics}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Name}"/>
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Project.Name}" VerticalAlignment="Center"/>
-                    <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Author}"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Project.Author}" VerticalAlignment="Center"/>
-                    <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Description}"/>
-                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Project.Description}" VerticalAlignment="Center" MinLines="5"/>
-                </Grid>
-            </GroupBox>
-            <GroupBox Header="{x:Static p:Resources.ProjectSettings_TimetableModel}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Label Content="{x:Static p:Resources.ProjectSettings_Days}"/>
-                    <Border Grid.Row="1" Grid.Column="0" Margin="5" BorderThickness="0.3" BorderBrush="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Header="{x:Static p:Resources.ProjectSettings_Basics}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Name}"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Project.Name}" VerticalAlignment="Center"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Author}"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Project.Author}" VerticalAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="{x:Static p:Resources.ProjectSettings_Description}"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Project.Description}" VerticalAlignment="Center" MinLines="5"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Header="{x:Static p:Resources.ProjectSettings_TimetableModel}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="{x:Static p:Resources.ProjectSettings_Days}"/>
+                <Border Grid.Row="1" Grid.Column="0" Margin="5" BorderThickness="0.3" BorderBrush="Black">
+                    <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding Project.TimetableTemplate.Days}" HorizontalContentAlignment="Stretch" MinHeight="100">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
@@ -55,29 +59,31 @@
                                         </Grid.ColumnDefinitions>
                                         <Label Grid.Column="0" HorizontalAlignment="Stretch" Content="{Binding Name}"/>
                                         <Button Grid.Column="1"
-                                                Width="26"
-                                                Height="26"
-                                                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.RemoveDayCommand}" 
-                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext}">
-                                            <Image Source="{StaticResource RemoveImage}" Width="20" Height="20"/>
+                                            Width="26"
+                                            Height="26"
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.RemoveDayCommand}" 
+                                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext}">
+                                            <Image Source="{StaticResource RemoveBlackImage}" Width="20" Height="20"/>
                                         </Button>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </Border>
-                    <Grid Grid.Row="2" Grid.Column="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox x:Name="AddDayTextBox" Grid.Column="0" Margin="5" Text="{Binding NewDayName}" MaxLines="1"/>
-                        <Button Grid.Column="1" Margin="5" Command="{Binding AddDayCommand}" Width="26" Height="26">
-                            <Image Source="{StaticResource AddImage}" Width="20" Height="20"/>
-                        </Button>
-                    </Grid>
-                    <Label Grid.Row="0" Grid.Column="1" Content="{x:Static p:Resources.ProjectSettings_Hours}"/>
-                    <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderThickness="0.3" BorderBrush="Black">
+                    </ScrollViewer>
+                </Border>
+                <Grid Grid.Row="2" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="AddDayTextBox" Grid.Column="0" Margin="5" Text="{Binding NewDayName}" MaxLines="1"/>
+                    <Button Grid.Column="1" Margin="5" Command="{Binding AddDayCommand}" Width="26" Height="26">
+                        <Image Source="{StaticResource AddImage}" Width="20" Height="20"/>
+                    </Button>
+                </Grid>
+                <Label Grid.Row="0" Grid.Column="1" Content="{x:Static p:Resources.ProjectSettings_Hours}"/>
+                <Border Grid.Row="1" Grid.Column="1" Margin="5" BorderThickness="0.3" BorderBrush="Black">
+                    <ScrollViewer>
                         <ItemsControl ItemsSource="{Binding Project.TimetableTemplate.Slots}" HorizontalContentAlignment="Stretch" MinHeight="100">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
@@ -92,33 +98,33 @@
                                             <Label Content="{Binding To}"/>
                                         </StackPanel>
                                         <Button Grid.Column="1"
-                                                Width="26"
-                                                Height="26"
-                                                Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.RemoveSlotCommand}" 
-                                                CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext}">
-                                            <Image Source="{StaticResource RemoveImage}" Width="20" Height="20"/>
+                                            Width="26"
+                                            Height="26"
+                                            Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.RemoveSlotCommand}" 
+                                            CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext}">
+                                            <Image Source="{StaticResource RemoveBlackImage}" Width="20" Height="20"/>
                                         </Button>
                                     </Grid>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
-                    </Border>
-                    <Grid Grid.Row="2" Grid.Column="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <xctk:DateTimeUpDown Grid.Column="0" Margin="5" Format="ShortTime" Value="{Binding NewSlotFrom}"/>
-                        <Label Grid.Column="1" Margin="5" Content="-"/>
-                        <xctk:DateTimeUpDown Grid.Column="2" Margin="5" Format="ShortTime" Value="{Binding NewSlotTo}"/>
-                        <Button Grid.Column="3" Margin="5" Command="{Binding AddSlotCommand}" Width="26" Height="26">
-                            <Image Source="{StaticResource AddImage}" Width="20" Height="20"/>
-                        </Button>
-                    </Grid>
+                    </ScrollViewer>
+                </Border>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <xctk:DateTimeUpDown Grid.Column="0" Margin="5" Format="ShortTime" Value="{Binding NewSlotFrom}"/>
+                    <Label Grid.Column="1" Margin="5" Content="-"/>
+                    <xctk:DateTimeUpDown Grid.Column="2" Margin="5" Format="ShortTime" Value="{Binding NewSlotTo}"/>
+                    <Button Grid.Column="3" Margin="5" Command="{Binding AddSlotCommand}" Width="26" Height="26">
+                        <Image Source="{StaticResource AddImage}" Width="20" Height="20"/>
+                    </Button>
                 </Grid>
-            </GroupBox>
-        </StackPanel>
-    </ScrollViewer>
+            </Grid>
+        </GroupBox>
+        </Grid>
 </UserControl>

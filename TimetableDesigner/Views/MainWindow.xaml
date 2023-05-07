@@ -13,12 +13,14 @@
         </MultiBinding>
     </rib:RibbonWindow.Title>
     <rib:RibbonWindow.DataContext>
-        <vm:MainViewModel/>
+        <vm:MainWindowVM/>
     </rib:RibbonWindow.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="0.3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
@@ -27,14 +29,30 @@
         </Grid.ColumnDefinitions>
         <rib:Ribbon Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3">
             <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_File}">
-                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_NewOpen}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_NewOpen_New}" Icon="{StaticResource NewImage}" Command="{Binding NewProjectCommand}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_NewOpen_Open}" Icon="{StaticResource OpenImage}" Command="{Binding OpenProjectCommand}"/>
-                    <rib:DropDownButton Header="{x:Static p:Resources.Main_Ribbon_File_NewOpen_OpenRecent}" Icon="{StaticResource OpenRecentImage}"/>
+                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_New}">
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_New_New}" Icon="{StaticResource NewImage}" Command="{Binding NewProjectCommand}"/>
+                </rib:RibbonGroupBox>
+                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_Open}">
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Open_Open}" Icon="{StaticResource OpenImage}" Command="{Binding OpenProjectCommand}"/>
+                    <rib:DropDownButton Header="{x:Static p:Resources.Main_Ribbon_File_Open_OpenRecent}" 
+                                        Icon="{StaticResource OpenRecentImage}"
+                                        ItemsSource="{Binding ProjectService.RecentProjects}">
+                        <rib:DropDownButton.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value.Name}"/>
+                            </DataTemplate>
+                        </rib:DropDownButton.ItemTemplate>
+                        <rib:DropDownButton.ItemContainerStyle>
+                            <Style TargetType="rib:MenuItem">
+                                <Setter Property="Command" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext.OpenRecentProjectCommand}"/>
+                                <Setter Property="CommandParameter" Value="{Binding Value.Path}"/>
+                            </Style>
+                        </rib:DropDownButton.ItemContainerStyle>
+                    </rib:DropDownButton>
                 </rib:RibbonGroupBox>
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_Save}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_Save}" Icon="{StaticResource SaveImage}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_SaveAs}" Icon="{StaticResource SaveAsImage}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_Save}" Icon="{StaticResource SaveImage}" Command="{Binding SaveProjectCommand}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_SaveAs}" Icon="{StaticResource SaveAsImage}" Command="{Binding SaveAsProjectCommand}"/>
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
             <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Project}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
@@ -54,6 +72,13 @@
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Import_ImportGroups}"/>
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
+            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Edit}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
+                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Edit_Timetable}">
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Edit_Timetable_Autoschedule}"
+                                Icon="{StaticResource AutoscheduleImage}"
+                                Command="{Binding AutoScheduleCommand}"/>
+                </rib:RibbonGroupBox>
+            </rib:RibbonTabItem>
             <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Export}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable}">
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable_PDF}"/>
@@ -61,125 +86,134 @@
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
         </rib:Ribbon>
-        <TreeView Grid.Row="1" Grid.Column="0" DataContext="{Binding ProjectService.ProjectViewModel}" Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext, Converter={StaticResource IsNullToVisibilityConverter}}">
-            <TreeViewItem>
-                <TreeViewItem.Header>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="{StaticResource ProjectImage}" Width="18" Height="18"/>
-                        <Label Content="{Binding Name}"/>
-                    </StackPanel>
-                </TreeViewItem.Header>
-                <TreeViewItem.InputBindings>
-                    <MouseBinding Gesture="LeftDoubleClick" 
-                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext.ProjectSettingsCommand}"/>
-                </TreeViewItem.InputBindings>
-                <TreeViewItem ItemsSource="{Binding Classrooms}">
+        <ScrollViewer Grid.Row="1" CanContentScroll="True">
+            <TreeView DataContext="{Binding ProjectService.ProjectViewModel}" Visibility="{Binding RelativeSource={RelativeSource Mode=Self}, Path=DataContext, Converter={StaticResource IsNullToVisibilityConverter}}">
+                <TreeViewItem>
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource ClassroomImage}" Width="18" Height="18"/>
-                            <Label Content="{x:Static p:Resources.Main_Treeview_Classrooms}"/>
+                            <Image Source="{StaticResource ProjectImage}" Width="18" Height="18"/>
+                            <Label Content="{Binding Name}"/>
                         </StackPanel>
                     </TreeViewItem.Header>
-                    <TreeViewItem.ItemTemplate>
-                        <DataTemplate>
-                            <TreeViewItem Header="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
-                                <TreeViewItem.InputBindings>
-                                    <MouseBinding Gesture="LeftDoubleClick"/>
-                                </TreeViewItem.InputBindings>
-                                <TreeViewItem.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_Classrooms_ContextMenu_Edit}" 
+                    <TreeViewItem.InputBindings>
+                        <MouseBinding Gesture="LeftDoubleClick" 
+                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext.ProjectSettingsCommand}"/>
+                    </TreeViewItem.InputBindings>
+                    <TreeViewItem ItemsSource="{Binding Classrooms}">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource ClassroomImage}" Width="18" Height="18"/>
+                                <Label Content="{x:Static p:Resources.Main_Treeview_Classrooms}"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <Setter Property="Header" Value="{Binding Name}"/>
+                                <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}"/>
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"
+                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTimetableCommand}"
+                                                  CommandParameter="{Binding}"/>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_Classrooms_ContextMenu_Edit}" 
                                                   Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditClassroomCommand}"
                                                   CommandParameter="{Binding}"/>
-                                        <Separator/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
+                                            <Separator/>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
                                                   Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveClassroomCommand}"
                                                   CommandParameter="{Binding}"/>
-                                    </ContextMenu>
-                                </TreeViewItem.ContextMenu>
-                            </TreeViewItem>
-                        </DataTemplate>
-                    </TreeViewItem.ItemTemplate>
-                </TreeViewItem>
-                <TreeViewItem ItemsSource="{Binding Teachers}">
-                    <TreeViewItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource TeacherImage}" Width="18" Height="18"/>
-                            <Label Content="{x:Static p:Resources.Main_Treeview_Teachers}"/>
-                        </StackPanel>
-                    </TreeViewItem.Header>
-                    <TreeViewItem.ItemTemplate>
-                        <DataTemplate>
-                            <TreeViewItem Header="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
-                                <TreeViewItem.InputBindings>
-                                    <MouseBinding Gesture="LeftDoubleClick"/>
-                                </TreeViewItem.InputBindings>
-                                <TreeViewItem.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_Teachers_ContextMenu_Edit}" 
-                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTeacherCommand}"
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TreeViewItem.ItemContainerStyle>
+                    </TreeViewItem>
+                    <TreeViewItem ItemsSource="{Binding Teachers}">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource TeacherImage}" Width="18" Height="18"/>
+                                <Label Content="{x:Static p:Resources.Main_Treeview_Teachers}"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <Setter Property="Header" Value="{Binding Name}"/>
+                                <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}"/>
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"
+                                              Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTimetableCommand}"
+                                              CommandParameter="{Binding}"/>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_Teachers_ContextMenu_Edit}" 
+                                              Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTeacherCommand}"
+                                              CommandParameter="{Binding}"/>
+                                            <Separator/>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
+                                              Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveTeacherCommand}"
+                                              CommandParameter="{Binding}"/>
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TreeViewItem.ItemContainerStyle>
+                    </TreeViewItem>
+                    <TreeViewItem ItemsSource="{Binding Groups}">
+                        <TreeViewItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="{StaticResource GroupImage}" Width="18" Height="18"/>
+                                <Label Content="{x:Static p:Resources.Main_Treeview_Groups}"/>
+                            </StackPanel>
+                        </TreeViewItem.Header>
+                        <TreeViewItem.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <Setter Property="Header" Value="{Binding Name}"/>
+                                <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}"/>
+                                <Setter Property="ContextMenu">
+                                    <Setter.Value>
+                                        <ContextMenu>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"
+                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTimetableCommand}"
                                                   CommandParameter="{Binding}"/>
-                                        <Separator/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
-                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveTeacherCommand}"
-                                                  CommandParameter="{Binding}"/>
-                                    </ContextMenu>
-                                </TreeViewItem.ContextMenu>
-                            </TreeViewItem>
-                        </DataTemplate>
-                    </TreeViewItem.ItemTemplate>
-                </TreeViewItem>
-                <TreeViewItem ItemsSource="{Binding Groups}">
-                    <TreeViewItem.Header>
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="{StaticResource GroupImage}" Width="18" Height="18"/>
-                            <Label Content="{x:Static p:Resources.Main_Treeview_Groups}"/>
-                        </StackPanel>
-                    </TreeViewItem.Header>
-                    <TreeViewItem.ItemTemplate>
-                        <DataTemplate>
-                            <TreeViewItem Header="{Binding Name}" ItemsSource="{Binding AssignedSubgroups}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
-                                <TreeViewItem.InputBindings>
-                                    <MouseBinding Gesture="LeftDoubleClick"/>
-                                </TreeViewItem.InputBindings>
-                                <TreeViewItem.ContextMenu>
-                                    <ContextMenu>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_Groups_ContextMenu_Edit}" 
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_Groups_ContextMenu_Edit}" 
                                                   Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditGroupCommand}"
                                                   CommandParameter="{Binding}"/>
-                                        <Separator/>
-                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
+                                            <Separator/>
+                                            <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
                                                   Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveGroupCommand}"
                                                   CommandParameter="{Binding}"/>
-                                    </ContextMenu>
-                                </TreeViewItem.ContextMenu>
-                                <TreeViewItem.ItemTemplate>
-                                    <DataTemplate>
-                                        <TreeViewItem Header="{Binding Name}" Tag="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}">
-                                            <TreeViewItem.InputBindings>
-                                                <MouseBinding Gesture="LeftDoubleClick"/>
-                                            </TreeViewItem.InputBindings>
-                                            <TreeViewItem.ContextMenu>
-                                                <ContextMenu>
-                                                    <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"/>
-                                                    <Separator/>
-                                                    <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
-                                                                  Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveSubgroupCommand}"
-                                                                  CommandParameter="{Binding}"/>
-                                                </ContextMenu>
-                                            </TreeViewItem.ContextMenu>
-                                        </TreeViewItem>
-                                    </DataTemplate>
-                                </TreeViewItem.ItemTemplate>
-                            </TreeViewItem>
-                        </DataTemplate>
-                    </TreeViewItem.ItemTemplate>
+                                        </ContextMenu>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="ItemsSource" Value="{Binding AssignedSubgroups}"/>
+                                <Setter Property="ItemContainerStyle">
+                                    <Setter.Value>
+                                        <Style TargetType="TreeViewItem">
+                                            <Setter Property="Header" Value="{Binding Name}"/>
+                                            <Setter Property="Tag" Value="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=rib:RibbonWindow}, Path=DataContext}"/>
+                                            <Setter Property="ContextMenu">
+                                                <Setter.Value>
+                                                    <ContextMenu>
+                                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_EditTimetable}"
+                                                              Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.EditTimetableCommand}"
+                                                              CommandParameter="{Binding}"/>
+                                                        <Separator/>
+                                                        <MenuItem Header="{x:Static p:Resources.Main_Treeview_ContextMenu_Remove}"
+                                                              Command="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContextMenu}, Path=PlacementTarget.Tag.RemoveGroupCommand}"
+                                                              CommandParameter="{Binding}"/>
+                                                    </ContextMenu>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </TreeViewItem.ItemContainerStyle>
+                    </TreeViewItem>
                 </TreeViewItem>
-            </TreeViewItem>
-        </TreeView>
+            </TreeView>
+        </ScrollViewer>
         <GridSplitter Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" ShowsPreview="True" Width="2"/>
         <TabControl Grid.Row="1" Grid.Column="2" DataContext="{Binding TabNavigationService}" ItemsSource="{Binding Tabs}" SelectedItem="{Binding SelectedTab, Mode=OneWay}">
             <TabControl.ItemTemplate>
@@ -208,5 +242,98 @@
                 </DataTemplate>
             </TabControl.ContentTemplate>
         </TabControl>
+        <GridSplitter Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" ShowsPreview="True" Height="2"/>
+        <DataGrid Grid.Row="3" Grid.ColumnSpan="3"
+                      ItemsSource="{Binding ProjectService.Errors}"
+                      CanUserAddRows="False"
+                      AutoGenerateColumns="False"
+                      IsReadOnly="True"
+                      IsSynchronizedWithCurrentItem="True"
+                      CanUserSortColumns="True"
+                      VerticalGridLinesBrush="LightGray"
+                      HorizontalGridLinesBrush="Transparent">
+            <DataGrid.InputBindings>
+                <MouseBinding MouseAction="LeftDoubleClick"
+                                      Command="{Binding EditTimetableCommand}"
+                                      CommandParameter="{Binding ProjectService.Errors/Unit}"/>
+            </DataGrid.InputBindings>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="25">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="20" Height="20">
+                                <Image.Style>
+                                    <Style TargetType="{x:Type Image}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Type}" Value="Error">
+                                                <Setter Property="Source" Value="{StaticResource ErrorImage}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="Warning">
+                                                <Setter Property="Source" Value="{StaticResource WarningImage}"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Type}" Value="Information">
+                                                <Setter Property="Source" Value="{StaticResource InfoImage}"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Source}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="Margin" Value="2,0,2,0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat=" {0}: {1}">
+                            <Binding Path="Unit" Converter="{StaticResource IUnitVMToUnitNameConverter}"/>
+                            <Binding Path="Unit.Name"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_ClassName}" Binding="{Binding Class.Name}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="2,0,2,0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Day}" Binding="{Binding Class.Day.Name}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="2,0,2,0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Slot}">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding StringFormat=" {0} - {1}">
+                            <Binding Path="Class.Slot.From"/>
+                            <Binding Path="Class.Slot.To"/>
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="2,0,2,0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Description}" Binding="{Binding Description}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="2,0,2,0" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </rib:RibbonWindow>

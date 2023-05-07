@@ -73,7 +73,7 @@ namespace TimetableDesigner.Services.TabNavigation
         public void Close(TabItem item) => Close(new List<TabItem>() { item });
         public void Close(IEnumerable<TabItem> items)
         {
-            TabItem selected = SelectedTab;
+            TabItem? selected = SelectedTab;
             while (items.Contains(selected) && selected != null)
             {
                 int nextIndex = Tabs.IndexOf(selected) + 1;
@@ -102,7 +102,7 @@ namespace TimetableDesigner.Services.TabNavigation
                     }
                 }
             }
-            foreach (TabItem item in items)
+            foreach (TabItem item in items.ToList())
             {
                 Tabs.Remove(item);
             }

@@ -7,14 +7,48 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
-    public class Classroom
+    [Serializable]
+    public class Classroom : IUnit
     {
+        #region FIELDS
+
+        private string _name;
+        private string _shortName;
+        private string _description;
+        private bool _isCapacityLimited;
+        private uint _capacity;
+
+        #endregion
+
+
+
         #region PROPERTIES
 
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public bool IsCapacityLimited { get; set; }
-        public uint Capacity { get; set; }
+        public string Name
+        {
+            get => _name;
+            set => _name = value;
+        }
+        public string ShortName
+        {
+            get => _shortName;
+            set => _shortName = value;
+        }
+        public string Description
+        {
+            get => _description;
+            set => _description = value;
+        }
+        public bool IsCapacityLimited
+        {
+            get => _isCapacityLimited;
+            set => _isCapacityLimited = value;
+        }
+        public uint Capacity
+        {
+            get => _capacity;
+            set => _capacity = value;
+        }
 
         #endregion
 
@@ -24,10 +58,11 @@ namespace TimetableDesigner.Core
 
         public Classroom()
         {
-            Name = string.Empty;
-            Description = string.Empty;
-            IsCapacityLimited = false;
-            Capacity = 1;
+            _name = string.Empty;
+            _shortName = string.Empty;
+            _description = string.Empty;
+            _isCapacityLimited = false;
+            _capacity = 1;
         }
 
         #endregion

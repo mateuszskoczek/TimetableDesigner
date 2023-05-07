@@ -1,14 +1,24 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace TimetableDesigner.Core
 {
     [Serializable]
     public class TimetableSpan
     {
+        #region FIELDS
+
+        private TimeOnly _from;
+        private TimeOnly _to;
+
+        #endregion
+
+
+
         #region PROPERTIES
 
-        public TimeOnly From { get; private set; }
-        public TimeOnly To { get; private set; }
+        public TimeOnly From => _from;
+        public TimeOnly To => _to;
 
         #endregion
 
@@ -20,11 +30,11 @@ namespace TimetableDesigner.Core
         {
             if (to <= from)
             {
-                throw new ArgumentException("\"to\" cannot be less or equal to \"from\"");
+                throw new ArgumentException("Ending value (\"to\") of TimetableSpan have to be greater than starting value (\"from\")");
             }
 
-            From = from;
-            To = to;
+            _from = from;
+            _to = to;
         }
 
         #endregion
@@ -33,27 +43,33 @@ namespace TimetableDesigner.Core
 
         #region PUBLIC METHODS
 
-        internal TimetableSpanCollision CheckCollision(TimetableSpan slot)
+        public override bool Equals(object? obj) => obj is TimetableSpan slot && From == slot.From && To == slot.To;
+
+        public override int GetHashCode() => HashCode.Combine(From, To);
+
+        public override string? ToString() => $"{From} - {To}";
+
+        public TimetableSpanCollision CheckCollision(TimetableSpan slot)
         {
             if (slot.To <= this.From)
             {
                 return TimetableSpanCollision.CheckedSlotBefore;
             }
-            else if (this.To <= slot.From) 
+            else if (this.To <= slot.From)
             {
                 return TimetableSpanCollision.CheckedSlotAfter;
             }
             else
             {
-                if (this.From < slot.From && slot.To < this.To)
+                if (this.From <= slot.From && slot.To <= this.To)
                 {
                     return TimetableSpanCollision.CheckedSlotIn;
                 }
-                else if (this.From < slot.From && slot.From < this.To && this.To < slot.To)
+                else if (this.From < slot.From && slot.From < this.To && this.To <= slot.To)
                 {
                     return TimetableSpanCollision.CheckedSlotFromIn;
                 }
-                else if (slot.From < this.From && this.From < slot.To && slot.To < this.To)
+                else if (slot.From < this.From && this.From < slot.To && slot.To <= this.To)
                 {
                     return TimetableSpanCollision.CheckedSlotToIn;
                 }
@@ -63,12 +79,6 @@ namespace TimetableDesigner.Core
                 }
             }
         }
-
-        public override bool Equals(object? obj) => obj is TimetableSpan slot && From == slot.From && To == slot.To;
-
-        public override int GetHashCode() => HashCode.Combine(From, To);
-
-        public override string? ToString() => $"{From}-{To}";
 
         #endregion
     }

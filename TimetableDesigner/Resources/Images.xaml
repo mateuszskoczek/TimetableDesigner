@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:s="clr-namespace:System;assembly=mscorlib">
     <BitmapImage x:Key="CloseImage" UriSource="Images/Close.png"/>
+    <BitmapImage x:Key="AutoscheduleImage" UriSource="Images/Autoschedule.png"/>
     <BitmapImage x:Key="AddImage" UriSource="Images/Add.png"/>
-    <BitmapImage x:Key="RemoveImage" UriSource="Images/Remove.png"/>
     <BitmapImage x:Key="ProjectImage" UriSource="Images/Project.png"/>
     <BitmapImage x:Key="ProjectSettingsImage" UriSource="Images/ProjectSettings.png"/>
     <BitmapImage x:Key="ClassroomImage" UriSource="Images/Classroom.png"/>
@@ -18,4 +18,19 @@
     <BitmapImage x:Key="RightArrowImage" UriSource="Images/RightArrow.png"/>
     <BitmapImage x:Key="GroupImage" UriSource="Images/Group.png"/>
     <BitmapImage x:Key="GroupAddImage" UriSource="Images/GroupAdd.png"/>
+    <BitmapImage x:Key="ErrorImage" UriSource="Images/Error.png"/>
+    <BitmapImage x:Key="WarningImage" UriSource="Images/Warning.png"/>
+    <BitmapImage x:Key="InfoImage" UriSource="Images/Info.png"/>
+    <BitmapImage x:Key="CloneBlackImage" UriSource="Images/CloneBlack.png"/>
+    <BitmapImage x:Key="CloneWhiteImage" UriSource="Images/CloneWhite.png"/>
+    <BitmapImage x:Key="ClassroomBlackImage" UriSource="Images/ClassroomBlack.png"/>
+    <BitmapImage x:Key="ClassroomWhiteImage" UriSource="Images/ClassroomWhite.png"/>
+    <BitmapImage x:Key="TeacherBlackImage" UriSource="Images/TeacherBlack.png"/>
+    <BitmapImage x:Key="TeacherWhiteImage" UriSource="Images/TeacherWhite.png"/>
+    <BitmapImage x:Key="GroupBlackImage" UriSource="Images/GroupBlack.png"/>
+    <BitmapImage x:Key="GroupWhiteImage" UriSource="Images/GroupWhite.png"/>
+    <BitmapImage x:Key="RemoveBlackImage" UriSource="Images/RemoveBlack.png"/>
+    <BitmapImage x:Key="RemoveWhiteImage" UriSource="Images/RemoveWhite.png"/>
+    <BitmapImage x:Key="EditBlackImage" UriSource="Images/EditBlack.png"/>
+    <BitmapImage x:Key="EditWhiteImage" UriSource="Images/EditWhite.png"/>
 </ResourceDictionary>

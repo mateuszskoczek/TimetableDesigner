@@ -20,8 +20,8 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public IEnumerable<TimetableDay> Days => _days;
-        public IEnumerable<TimetableSpan> Slots => _slots;
+        public ICollection<TimetableDay> Days => _days;
+        public ICollection<TimetableSpan> Slots => _slots;
 
         #endregion
 
@@ -34,20 +34,6 @@ namespace TimetableDesigner.Core
             _days = new List<TimetableDay>();
             _slots = new TimetableSpanCollection();
         }
-
-        #endregion
-
-
-
-        #region PUBLIC METHODS
-
-        public void AddDay(TimetableDay name) => _days.Add(name);
-
-        public bool RemoveDay(TimetableDay day) => _days.Remove(day);
-
-        public void AddSlot(TimetableSpan slot) => _slots.Add(slot);
-
-        public bool RemoveSlot(TimetableSpan slot) => _slots.Remove(slot);
 
         #endregion
     }

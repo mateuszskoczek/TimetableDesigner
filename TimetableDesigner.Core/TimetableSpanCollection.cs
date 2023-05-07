@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
+    [Serializable]
     public class TimetableSpanCollection : ICollection<TimetableSpan>
     {
         #region FIELDS
 
-        private IList<TimetableSpan> _list;
+        private List<TimetableSpan> _list;
 
         #endregion
 
@@ -20,7 +21,7 @@ namespace TimetableDesigner.Core
         #region PROPERTIES
 
         public int Count => _list.Count;
-        public bool IsReadOnly => _list.IsReadOnly;
+        public bool IsReadOnly => ((ICollection<TimetableSpan>)_list).IsReadOnly;
 
         #endregion
 

@@ -5,4 +5,10 @@
     <c:IsNullToVisibilityConverter x:Key="IsNullToVisibilityConverter"/>
     <c:IsNotNullToBooleanConverter x:Key="IsNotNullToBooleanConverter"/>
     <c:IntegerAddConstantConverter x:Key="IntegerAddConstantConverter"/>
+    <c:TimetableDayToColumnNumberConverter x:Key="TimetableDayToColumnNumberConverter"/>
+    <c:TimetableSlotToRowNumberConverter x:Key="TimetableSlotToRowNumberConverter"/>
+    <c:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    <c:ByteArrayToColorConverter x:Key="ByteArrayToColorConverter"/>
+    <c:IUnitVMToUnitNameConverter x:Key="IUnitVMToUnitNameConverter"/>
+    <c:ColorBrightnessIsHigherToBooleanConverter x:Key="ColorBrightnessIsHigherToBooleanConverter"/>
 </ResourceDictionary>

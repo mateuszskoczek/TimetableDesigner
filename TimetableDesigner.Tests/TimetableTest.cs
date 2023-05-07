@@ -42,12 +42,9 @@ namespace TimetableDesigner.Tests
         {
             TimetableTemplate model = new TimetableTemplate();
 
-            TimetableDay day = new TimetableDay
-            {
-                Name = "Monday"
-            };
+            TimetableDay day = new TimetableDay("Monday");
 
-            model.AddDay(day);
+            model.Days.Add(day);
 
             Assert.AreEqual(1, model.Days.Count());
             Assert.AreEqual(day, model.Days.ToList()[0]);
@@ -60,7 +57,7 @@ namespace TimetableDesigner.Tests
 
             TimetableSpan slot = new TimetableSpan(new TimeOnly(8, 0), new TimeOnly(9, 0));
 
-            model.AddSlot(slot);
+            model.Slots.Add(slot);
 
             Assert.AreEqual(1, model.Slots.Count());
             Assert.AreEqual(new TimetableSpan(new TimeOnly(8, 0), new TimeOnly(9, 0)), model.Slots.ToList()[0]);
@@ -74,8 +71,8 @@ namespace TimetableDesigner.Tests
             TimetableSpan slot1 = new TimetableSpan(new TimeOnly(8, 15), new TimeOnly(9, 0));
             TimetableSpan slot2 = new TimetableSpan(new TimeOnly(9, 15), new TimeOnly(10, 0));
 
-            model.AddSlot(slot1);
-            model.AddSlot(slot2);
+            model.Slots.Add(slot1);
+            model.Slots.Add(slot2);
 
             Assert.AreEqual(2, model.Slots.Count());
             Assert.AreEqual(new TimetableSpan(new TimeOnly(8, 15), new TimeOnly(9, 0)), model.Slots.ToList()[0]);
@@ -90,8 +87,8 @@ namespace TimetableDesigner.Tests
             TimetableSpan slot1 = new TimetableSpan(new TimeOnly(8, 0), new TimeOnly(9, 0));
             TimetableSpan slot2 = new TimetableSpan(new TimeOnly(9, 0), new TimeOnly(10, 0));
 
-            model.AddSlot(slot1);
-            model.AddSlot(slot2);
+            model.Slots.Add(slot1);
+            model.Slots.Add(slot2);
 
             Assert.AreEqual(2, model.Slots.Count());
             Assert.AreEqual(new TimetableSpan(new TimeOnly(8, 0), new TimeOnly(9, 0)), model.Slots.ToList()[0]);
@@ -107,8 +104,8 @@ namespace TimetableDesigner.Tests
             TimetableSpan slot1 = new TimetableSpan(new TimeOnly(8, 0), new TimeOnly(9, 30));
             TimetableSpan slot2 = new TimetableSpan(new TimeOnly(8, 30), new TimeOnly(10, 0));
 
-            model.AddSlot(slot1);
-            model.AddSlot(slot2);
+            model.Slots.Add(slot1);
+            model.Slots.Add(slot2);
 
             Assert.Fail();
         }
@@ -123,9 +120,9 @@ namespace TimetableDesigner.Tests
             TimetableSpan slot2 = new TimetableSpan(new TimeOnly(10, 0), new TimeOnly(11, 0));
             TimetableSpan slot3 = new TimetableSpan(new TimeOnly(8, 59), new TimeOnly(10, 1));
 
-            model.AddSlot(slot1);
-            model.AddSlot(slot2);
-            model.AddSlot(slot3);
+            model.Slots.Add(slot1);
+            model.Slots.Add(slot2);
+            model.Slots.Add(slot3);
 
             Assert.Fail();
         }
@@ -143,13 +140,13 @@ namespace TimetableDesigner.Tests
             TimetableSpan slot6 = new TimetableSpan(new TimeOnly(9, 0), new TimeOnly(10, 0));
             TimetableSpan slot7 = new TimetableSpan(new TimeOnly(11, 0), new TimeOnly(12, 0));
 
-            model.AddSlot(slot1);
-            model.AddSlot(slot2);
-            model.AddSlot(slot3);
-            model.AddSlot(slot4);
-            model.AddSlot(slot5);
-            model.AddSlot(slot6);
-            model.AddSlot(slot7);
+            model.Slots.Add(slot1);
+            model.Slots.Add(slot2);
+            model.Slots.Add(slot3);
+            model.Slots.Add(slot4);
+            model.Slots.Add(slot5);
+            model.Slots.Add(slot6);
+            model.Slots.Add(slot7);
 
             List<TimetableSpan> slots = model.Slots.ToList();
 

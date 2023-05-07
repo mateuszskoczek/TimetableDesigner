@@ -115,6 +115,114 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to During this class, other classes are taking place in this classroom.
+        /// </summary>
+        public static string Errors_ClassroomBusy {
+            get {
+                return ResourceManager.GetString("Errors.ClassroomBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class has no assigned classroom.
+        /// </summary>
+        public static string Errors_ClassroomNotAssigned {
+            get {
+                return ResourceManager.GetString("Errors.ClassroomNotAssigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During this class, group, to which selected subgroup is assigned, already has other classes.
+        /// </summary>
+        public static string Errors_GroupAllBusy {
+            get {
+                return ResourceManager.GetString("Errors.GroupAllBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During this class, the selected group already has other classes.
+        /// </summary>
+        public static string Errors_GroupBusy {
+            get {
+                return ResourceManager.GetString("Errors.GroupBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class has no assigned group.
+        /// </summary>
+        public static string Errors_GroupNotAssigned {
+            get {
+                return ResourceManager.GetString("Errors.GroupNotAssigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During this class, part of selected group already has other classes in subgroup.
+        /// </summary>
+        public static string Errors_GroupPartBusy {
+            get {
+                return ResourceManager.GetString("Errors.GroupPartBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class is not scheduled.
+        /// </summary>
+        public static string Errors_SlotNotAssigned {
+            get {
+                return ResourceManager.GetString("Errors.SlotNotAssigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to During this class, the selected teacher conducts other classes.
+        /// </summary>
+        public static string Errors_TeacherBusy {
+            get {
+                return ResourceManager.GetString("Errors.TeacherBusy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class has no assigned teacher.
+        /// </summary>
+        public static string Errors_TeacherNotAssigned {
+            get {
+                return ResourceManager.GetString("Errors.TeacherNotAssigned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected teacher is not available during the class.
+        /// </summary>
+        public static string Errors_TeacherNotAvailable {
+            get {
+                return ResourceManager.GetString("Errors.TeacherNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All files.
+        /// </summary>
+        public static string Global_AllFiles {
+            get {
+                return ResourceManager.GetString("Global.AllFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom.
+        /// </summary>
+        public static string Global_Classroom {
+            get {
+                return ResourceManager.GetString("Global.Classroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New classroom.
         /// </summary>
         public static string Global_DefaultClassroomName {
@@ -151,11 +259,47 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Global_Group {
+            get {
+                return ResourceManager.GetString("Global.Group", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to no project loaded.
         /// </summary>
         public static string Global_NoProjectLoadedTitle {
             get {
                 return ResourceManager.GetString("Global.NoProjectLoadedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TimetableEditor project file.
+        /// </summary>
+        public static string Global_ProjectFiletypeDescription {
+            get {
+                return ResourceManager.GetString("Global.ProjectFiletypeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Subgroup.
+        /// </summary>
+        public static string Global_Subgroup {
+            get {
+                return ResourceManager.GetString("Global.Subgroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teacher.
+        /// </summary>
+        public static string Global_Teacher {
+            get {
+                return ResourceManager.GetString("Global.Teacher", resourceCulture);
             }
         }
         
@@ -232,11 +376,147 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Class name.
+        /// </summary>
+        public static string Main_Errors_ClassName {
+            get {
+                return ResourceManager.GetString("Main.Errors.ClassName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        public static string Main_Errors_Day {
+            get {
+                return ResourceManager.GetString("Main.Errors.Day", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Description.
+        /// </summary>
+        public static string Main_Errors_Description {
+            get {
+                return ResourceManager.GetString("Main.Errors.Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slot.
+        /// </summary>
+        public static string Main_Errors_Slot {
+            get {
+                return ResourceManager.GetString("Main.Errors.Slot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source.
+        /// </summary>
+        public static string Main_Errors_Source {
+            get {
+                return ResourceManager.GetString("Main.Errors.Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Project is loaded. Do you want to save?.
         /// </summary>
         public static string Main_Message_SaveCurrentProject {
             get {
                 return ResourceManager.GetString("Main.Message.SaveCurrentProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Main_Ribbon_Edit {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Timetable.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autoschedule all unscheduled classes.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Following classes could not be scheduled.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_FollowingClassesCouldNotBeScheduled {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.FollowingClassesCouldNotBeSchedul" +
+                        "ed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to more.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_More {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.More", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no unscheduled classes.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_NoUnscheduledClasses {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.NoUnscheduledClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully scheduled classes.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_SuccessfullyScheduled {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.SuccessfullyScheduled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Classroom.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_UnitClassroom {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitClassroom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_UnitGroup {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teacher.
+        /// </summary>
+        public static string Main_Ribbon_Edit_Timetable_Autoschedule_Message_UnitTeacher {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Edit.Timetable.Autoschedule.Message.UnitTeacher", resourceCulture);
             }
         }
         
@@ -286,38 +566,47 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New/Open.
+        ///   Looks up a localized string similar to New.
         /// </summary>
-        public static string Main_Ribbon_File_NewOpen {
+        public static string Main_Ribbon_File_New {
             get {
-                return ResourceManager.GetString("Main.Ribbon.File.NewOpen", resourceCulture);
+                return ResourceManager.GetString("Main.Ribbon.File.New", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
-        public static string Main_Ribbon_File_NewOpen_New {
+        public static string Main_Ribbon_File_New_New {
             get {
-                return ResourceManager.GetString("Main.Ribbon.File.NewOpen.New", resourceCulture);
+                return ResourceManager.GetString("Main.Ribbon.File.New.New", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Open.
         /// </summary>
-        public static string Main_Ribbon_File_NewOpen_Open {
+        public static string Main_Ribbon_File_Open {
             get {
-                return ResourceManager.GetString("Main.Ribbon.File.NewOpen.Open", resourceCulture);
+                return ResourceManager.GetString("Main.Ribbon.File.Open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string Main_Ribbon_File_Open_Open {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.File.Open.Open", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Open recent.
         /// </summary>
-        public static string Main_Ribbon_File_NewOpen_OpenRecent {
+        public static string Main_Ribbon_File_Open_OpenRecent {
             get {
-                return ResourceManager.GetString("Main.Ribbon.File.NewOpen.OpenRecent", resourceCulture);
+                return ResourceManager.GetString("Main.Ribbon.File.Open.OpenRecent", resourceCulture);
             }
         }
         
@@ -484,6 +773,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this classroom. This operation is irreversible. Classroom will be unassigned for all classes..
+        /// </summary>
+        public static string Main_Treeview_Classrooms_Message_Remove {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Classrooms.Message.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit timetable.
         /// </summary>
         public static string Main_Treeview_ContextMenu_EditTimetable {
@@ -520,7 +818,16 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups..
+        ///   Looks up a localized string similar to Are you sure you want to delete this group. This operation is irreversible. Group will be unassigned for all classes..
+        /// </summary>
+        public static string Main_Treeview_Groups_Message_Remove {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Groups.Message.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this subgroup. This operation is irreversible. Subgroup will be unassigned for all groups and classes..
         /// </summary>
         public static string Main_Treeview_Subgroups_Message_Remove {
             get {
@@ -547,6 +854,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this teacher. This operation is irreversible. Teacher will be unassigned for all classes..
+        /// </summary>
+        public static string Main_Treeview_Teachers_Message_Remove {
+            get {
+                return ResourceManager.GetString("Main.Treeview.Teachers.Message.Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
         public static string MessageBox_Error {
@@ -556,11 +872,29 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Information.
+        /// </summary>
+        public static string MessageBox_Information {
+            get {
+                return ResourceManager.GetString("MessageBox.Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Question.
         /// </summary>
         public static string MessageBox_Question {
             get {
                 return ResourceManager.GetString("MessageBox.Question", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string MessageBox_Warning {
+            get {
+                return ResourceManager.GetString("MessageBox.Warning", resourceCulture);
             }
         }
         
@@ -682,6 +1016,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Timetable editing.
+        /// </summary>
+        public static string Tabs_TimetableEdit {
+            get {
+                return ResourceManager.GetString("Tabs.TimetableEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Welcome.
         /// </summary>
         public static string Tabs_Welcome {
@@ -759,6 +1102,24 @@ namespace TimetableDesigner.Properties {
         public static string TeacherEdit_Name {
             get {
                 return ResourceManager.GetString("TeacherEdit.Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autoschedule.
+        /// </summary>
+        public static string TimetableEditor_Autoschedule {
+            get {
+                return ResourceManager.GetString("TimetableEditor.Autoschedule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unscheduled.
+        /// </summary>
+        public static string TimetableEditor_Unscheduled {
+            get {
+                return ResourceManager.GetString("TimetableEditor.Unscheduled", resourceCulture);
             }
         }
     }
