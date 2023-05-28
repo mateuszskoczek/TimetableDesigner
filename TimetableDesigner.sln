@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Tests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimetableDesigner.Customs", "TimetableDesigner.Customs\TimetableDesigner.Customs.csproj", "{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimetableDesigner.Export", "TimetableDesigner.Export\TimetableDesigner.Export.csproj", "{C97DB09E-CB48-432A-8BA4-108B21F2DF94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,14 @@ Global
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Release|x64.ActiveCfg = Release|Any CPU
 		{BCA4CD04-FD49-4C28-9743-F4F6C1888E7E}.Release|x64.Build.0 = Release|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Debug|x64.Build.0 = Debug|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Release|x64.ActiveCfg = Release|Any CPU
+		{C97DB09E-CB48-432A-8BA4-108B21F2DF94}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TimetableDesigner.Core
 {
-    public abstract class BaseGroup : IUnit
+    [Serializable]
+    public abstract class BaseGroup : Unit
     {
         #region FIELDS
 
-        private string _name;
         private string _shortName;
 
         #endregion
@@ -19,11 +19,6 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
         public string ShortName
         {
             get => _shortName;
@@ -36,9 +31,8 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public BaseGroup()
+        public BaseGroup(ulong id) : base(id)
         {
-            _name = string.Empty;
             _shortName = string.Empty;
         }
 

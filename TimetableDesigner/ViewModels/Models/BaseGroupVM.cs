@@ -21,9 +21,11 @@ namespace TimetableDesigner.ViewModels.Models
 
         #region PROPERTIES
 
-        IUnit IUnitVM.Unit => _baseGroup;
+        Unit IUnitVM.Unit => _baseGroup;
         public BaseGroup BaseGroup => _baseGroup;
 
+        public ulong Id => _baseGroup.Id;
+        public Guid Guid => _baseGroup.Guid;
         public string Name
         {
             get => _baseGroup.Name;

@@ -11,7 +11,7 @@ namespace TimetableDesigner.Core
     {
         #region CONSTRUCTORS
 
-        public Subgroup() : base()
+        public Subgroup(ulong id) : base(id)
         { }
 
         #endregion

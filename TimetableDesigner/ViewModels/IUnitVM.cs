@@ -11,7 +11,9 @@ namespace TimetableDesigner.ViewModels.Models.Base
     {
         #region PROPERTIES
         
-        IUnit Unit { get; }
+        Unit Unit { get; }
+        Guid Guid { get; }
+        ulong Id { get; }
         string Name { get; }
 
         #endregion

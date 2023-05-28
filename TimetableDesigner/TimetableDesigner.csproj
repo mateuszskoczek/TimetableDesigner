@@ -35,6 +35,8 @@
     <None Remove="Resources\Images\GroupBlack.png" />
     <None Remove="Resources\Images\GroupGrey.png" />
     <None Remove="Resources\Images\GroupWhite.png" />
+    <None Remove="Resources\Images\HTML.png" />
+    <None Remove="Resources\Images\Import.png" />
     <None Remove="Resources\Images\Info.png" />
     <None Remove="Resources\Images\New.png" />
     <None Remove="Resources\Images\Open.png" />
@@ -89,6 +91,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\GroupWhite.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\HTML.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\Import.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Images\Info.png">
@@ -170,6 +178,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TimetableDesigner.Core\TimetableDesigner.Core.csproj" />
     <ProjectReference Include="..\TimetableDesigner.Customs\TimetableDesigner.Customs.csproj" />
+    <ProjectReference Include="..\TimetableDesigner.Export\TimetableDesigner.Export.csproj" />
   </ItemGroup>
 
   <ItemGroup>

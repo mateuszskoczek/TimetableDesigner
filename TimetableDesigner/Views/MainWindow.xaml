@@ -9,7 +9,7 @@
     <rib:RibbonWindow.Title>
         <MultiBinding StringFormat="Timetable Designer {0} ({1})">
             <Binding Path="Version"/>
-            <Binding Path="ProjectService.Project.Name" FallbackValue="{x:Static p:Resources.Global_NoProjectLoadedTitle}"/>
+            <Binding Path="ProjectService.ProjectViewModel.Name" FallbackValue="{x:Static p:Resources.Global_NoProjectLoadedTitle}"/>
         </MultiBinding>
     </rib:RibbonWindow.Title>
     <rib:RibbonWindow.DataContext>
@@ -50,39 +50,55 @@
                         </rib:DropDownButton.ItemContainerStyle>
                     </rib:DropDownButton>
                 </rib:RibbonGroupBox>
-                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_Save}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_Save}" Icon="{StaticResource SaveImage}" Command="{Binding SaveProjectCommand}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_SaveAs}" Icon="{StaticResource SaveAsImage}" Command="{Binding SaveAsProjectCommand}"/>
+                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_File_Save}" 
+                                    IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_Save}" 
+                                Icon="{StaticResource SaveImage}" 
+                                Command="{Binding SaveProjectCommand}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_File_Save_SaveAs}" 
+                                Icon="{StaticResource SaveAsImage}" 
+                                Command="{Binding SaveAsProjectCommand}"/>
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
-            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Project}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
+            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Project}" 
+                               IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Project_Settings}">
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Settings_ProjectSettings}" 
                                 Command="{Binding ProjectSettingsCommand}"
                                 Icon="{StaticResource ProjectSettingsImage}"/>
                 </rib:RibbonGroupBox>
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Project_New}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewClassroom}" Icon="{StaticResource ClassroomAddImage}" Command="{Binding NewClassroomCommand}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewTeacher}" Icon="{StaticResource TeacherAddImage}" Command="{Binding NewTeacherCommand}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewGroup}" Icon="{StaticResource GroupAddImage}" Command="{Binding NewGroupCommand}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewClassroom}" 
+                                Icon="{StaticResource ClassroomAddImage}" 
+                                Command="{Binding NewClassroomCommand}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewTeacher}" 
+                                Icon="{StaticResource TeacherAddImage}" 
+                                Command="{Binding NewTeacherCommand}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_New_NewGroup}" 
+                                Icon="{StaticResource GroupAddImage}" 
+                                Command="{Binding NewGroupCommand}"/>
                 </rib:RibbonGroupBox>
-                <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Project_Import}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Import_ImportClassrooms}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Import_ImportTeachers}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Import_ImportGroups}"/>
-                </rib:RibbonGroupBox>
+                <!--rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Project_Import}">
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Project_Import_ImportClassrooms}"
+                                Icon="{StaticResource ImportImage}"
+                                Command="{Binding ImportClassroomCommand}"/>
+                </rib:RibbonGroupBox-->
             </rib:RibbonTabItem>
-            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Edit}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
+            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Edit}" 
+                               IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Edit_Timetable}">
                     <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Edit_Timetable_Autoschedule}"
                                 Icon="{StaticResource AutoscheduleImage}"
                                 Command="{Binding AutoScheduleCommand}"/>
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
-            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Export}" IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
+            <rib:RibbonTabItem Header="{x:Static p:Resources.Main_Ribbon_Export}" 
+                               IsEnabled="{Binding ProjectService.ProjectViewModel, Converter={StaticResource IsNotNullToBooleanConverter}}">
                 <rib:RibbonGroupBox Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable}">
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable_PDF}"/>
-                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable_XLS}"/>
+                    <rib:Button Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable_HTML}"
+                                Icon="{StaticResource HTMLImage}"
+                                Command="{Binding ExportHTMLCommand}"/>
+                    <!--rib:Button Header="{x:Static p:Resources.Main_Ribbon_Export_Timetable_XLS}"/-->
                 </rib:RibbonGroupBox>
             </rib:RibbonTabItem>
         </rib:Ribbon>
@@ -258,7 +274,7 @@
                                       CommandParameter="{Binding ProjectService.Errors/Unit}"/>
             </DataGrid.InputBindings>
             <DataGrid.Columns>
-                <DataGridTemplateColumn Width="25">
+                <DataGridTemplateColumn Width="25" SortMemberPath="Type">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Image Width="20" Height="20">
@@ -281,7 +297,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Source}">
+                <DataGridTextColumn Header="{x:Static p:Resources.Main_Errors_Source}" SortMemberPath="Unit.Name">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="VerticalAlignment" Value="Center"/>

@@ -132,7 +132,7 @@ namespace TimetableDesigner.ViewModels.Views
 
         #region CONSTRUCTORS
 
-        public TeacherEditorViewVM() : this(new TeacherVM(new Teacher()))
+        public TeacherEditorViewVM() : this(new TeacherVM(new Teacher(0)))
         { }
 
         public TeacherEditorViewVM(TeacherVM teacher)

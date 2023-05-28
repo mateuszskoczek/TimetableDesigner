@@ -276,6 +276,9 @@
   <data name="Main.Ribbon.Export.Timetable" xml:space="preserve">
     <value>Timetable</value>
   </data>
+  <data name="Main.Ribbon.Export.Timetable.HTML" xml:space="preserve">
+    <value>HTML</value>
+  </data>
   <data name="Main.Ribbon.Export.Timetable.PDF" xml:space="preserve">
     <value>PDF</value>
   </data>
@@ -317,12 +320,6 @@
   </data>
   <data name="Main.Ribbon.Project.Import.ImportClassrooms" xml:space="preserve">
     <value>Import classrooms</value>
-  </data>
-  <data name="Main.Ribbon.Project.Import.ImportGroups" xml:space="preserve">
-    <value>Import groups</value>
-  </data>
-  <data name="Main.Ribbon.Project.Import.ImportTeachers" xml:space="preserve">
-    <value>Import teachers</value>
   </data>
   <data name="Main.Ribbon.Project.New" xml:space="preserve">
     <value>New</value>
@@ -426,8 +423,14 @@
   <data name="Tabs.ClassroomEdit" xml:space="preserve">
     <value>Classroom editing</value>
   </data>
+  <data name="Tabs.ExportHTML" xml:space="preserve">
+    <value>Export to HTML</value>
+  </data>
   <data name="Tabs.GroupEdit" xml:space="preserve">
     <value>Group editing</value>
+  </data>
+  <data name="Tabs.ImportClassroom" xml:space="preserve">
+    <value>Import classrooms</value>
   </data>
   <data name="Tabs.ProjectSettings" xml:space="preserve">
     <value>Project settings</value>

@@ -26,6 +26,7 @@ namespace TimetableDesigner.Converters
             { typeof(TeacherEditorViewVM), typeof(TeacherEditorView) },
             { typeof(GroupEditorViewVM), typeof(GroupEditorView) },
             { typeof(TimetableEditorViewVM), typeof(TimetableEditorView) },
+            { typeof(ExportHTMLViewVM), typeof(ExportHTMLView) },
         };
 
         #endregion

@@ -57,7 +57,7 @@ namespace TimetableDesigner.Services.FileDialog
                 List<string> extensionStrings = new List<string>();
                 foreach (string extension in type.Value)
                 {
-                    extensionStrings.Add($"*.{extension}");
+                    extensionStrings.Add($"*.{extension.ToLower()}");
                 }
 
                 sb.Append(string.Join(';', extensionStrings));

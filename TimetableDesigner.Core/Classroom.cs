@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 namespace TimetableDesigner.Core
 {
     [Serializable]
-    public class Classroom : IUnit
+    public class Classroom : Unit
     {
         #region FIELDS
 
-        private string _name;
         private string _shortName;
         private string _description;
         private bool _isCapacityLimited;
@@ -24,11 +23,6 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
         public string ShortName
         {
             get => _shortName;
@@ -56,9 +50,8 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public Classroom()
+        public Classroom(ulong id) : base(id)
         {
-            _name = string.Empty;
             _shortName = string.Empty;
             _description = string.Empty;
             _isCapacityLimited = false;

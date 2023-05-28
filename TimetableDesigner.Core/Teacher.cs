@@ -8,11 +8,10 @@ using TimetableDesigner.Customs;
 namespace TimetableDesigner.Core
 {
     [Serializable]
-    public class Teacher : IUnit
+    public class Teacher : Unit
     {
         #region FIELDS
 
-        private string _name;
         private string _shortName;
         private string _description;
         private JsonSerializableDictionary<TimetableDay, TimetableSpanCollection> _availabilityHours;
@@ -23,11 +22,6 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public string Name
-        {
-            get => _name;
-            set => _name = value;
-        }
         public string ShortName
         {
             get => _shortName;
@@ -38,7 +32,7 @@ namespace TimetableDesigner.Core
             get => _description;
             set => _description = value;
         }
-        public IDictionary<TimetableDay, TimetableSpanCollection> AvailabilityHours => _availabilityHours;
+        public JsonSerializableDictionary<TimetableDay, TimetableSpanCollection> AvailabilityHours => _availabilityHours;
 
         #endregion
 
@@ -46,9 +40,8 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public Teacher()
+        public Teacher(ulong id) : base(id)
         {
-            _name = string.Empty;
             _shortName = string.Empty;
             _description = string.Empty;
             _availabilityHours = new JsonSerializableDictionary<TimetableDay, TimetableSpanCollection>();

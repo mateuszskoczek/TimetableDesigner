@@ -21,9 +21,11 @@ namespace TimetableDesigner.ViewModels.Models
 
         #region PROPERTIES
 
-        IUnit IUnitVM.Unit => _classroom;
+        Unit IUnitVM.Unit => _classroom;
         public Classroom Classroom => _classroom;
 
+        public Guid Guid => _classroom.Guid;
+        public ulong Id => _classroom.Id;
         public string Name
         {
             get => _classroom.Name;

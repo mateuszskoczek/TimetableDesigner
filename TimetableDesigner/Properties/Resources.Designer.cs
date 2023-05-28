@@ -539,6 +539,15 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HTML.
+        /// </summary>
+        public static string Main_Ribbon_Export_Timetable_HTML {
+            get {
+                return ResourceManager.GetString("Main.Ribbon.Export.Timetable.HTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PDF.
         /// </summary>
         public static string Main_Ribbon_Export_Timetable_PDF {
@@ -661,24 +670,6 @@ namespace TimetableDesigner.Properties {
         public static string Main_Ribbon_Project_Import_ImportClassrooms {
             get {
                 return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportClassrooms", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Import groups.
-        /// </summary>
-        public static string Main_Ribbon_Project_Import_ImportGroups {
-            get {
-                return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportGroups", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Import teachers.
-        /// </summary>
-        public static string Main_Ribbon_Project_Import_ImportTeachers {
-            get {
-                return ResourceManager.GetString("Main.Ribbon.Project.Import.ImportTeachers", resourceCulture);
             }
         }
         
@@ -989,11 +980,29 @@ namespace TimetableDesigner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export to HTML.
+        /// </summary>
+        public static string Tabs_ExportHTML {
+            get {
+                return ResourceManager.GetString("Tabs.ExportHTML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Group editing.
         /// </summary>
         public static string Tabs_GroupEdit {
             get {
                 return ResourceManager.GetString("Tabs.GroupEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import classrooms.
+        /// </summary>
+        public static string Tabs_ImportClassroom {
+            get {
+                return ResourceManager.GetString("Tabs.ImportClassroom", resourceCulture);
             }
         }
         

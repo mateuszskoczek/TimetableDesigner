@@ -93,7 +93,7 @@ namespace TimetableDesigner.ViewModels.Views
 
         #region CONSTRUCTORS
 
-        public GroupEditorViewVM() : this(new GroupVM(new Group()))
+        public GroupEditorViewVM() : this(new GroupVM(new Group(0)))
         { }
 
         public GroupEditorViewVM(GroupVM group)
@@ -117,7 +117,13 @@ namespace TimetableDesigner.ViewModels.Views
 
         private void AddSubgroup()
         {
-            Subgroup subgroup = new Subgroup()
+            ulong id = 0;
+            if (_projectService.ProjectViewModel.Subgroups.Count() > 0)
+            {
+                id = _projectService.ProjectViewModel.Subgroups.Select(x => x.Id).Max() + 1;
+            }
+
+            Subgroup subgroup = new Subgroup(id)
             {
                 Name = NewSubgroupName
             };

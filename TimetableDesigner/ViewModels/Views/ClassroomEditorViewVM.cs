@@ -64,7 +64,7 @@ namespace TimetableDesigner.ViewModels.Views
 
         #region CONSTRUCTORS
 
-        public ClassroomEditorViewVM() : this(new ClassroomVM(new Classroom()))
+        public ClassroomEditorViewVM() : this(new ClassroomVM(new Classroom(0)))
         { }
 
         public ClassroomEditorViewVM(ClassroomVM classroom)

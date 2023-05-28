@@ -33,7 +33,7 @@ namespace TimetableDesigner.Core
 
         #region CONSTRUCTORS
 
-        public Group() : base()
+        public Group(ulong id) : base(id)
         {
             _description = string.Empty;
             _assignedSubgroups = new HashSet<Subgroup>();

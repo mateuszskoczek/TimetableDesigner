@@ -29,6 +29,7 @@ using System.Windows.Forms;
 using TimetableDesigner.Services.FileDialog;
 using TimetableDesigner.Services.Scheduler;
 using static TimetableDesigner.ViewModels.Views.TimetableEditorViewVM;
+using TimetableDesigner.Views;
 
 namespace TimetableDesigner.ViewModels.Views
 {
@@ -80,6 +81,7 @@ namespace TimetableDesigner.ViewModels.Views
         public ICommand RemoveSubgroupCommand { get; set; }
         public ICommand EditTimetableCommand { get; set; }
         public ICommand AutoScheduleCommand { get; set; }
+        public ICommand ExportHTMLCommand { get; set; }
 
         // Others
         public string? Version { get; set; }
@@ -116,6 +118,7 @@ namespace TimetableDesigner.ViewModels.Views
             RemoveSubgroupCommand = new RelayCommand<SubgroupVM>(RemoveSubgroup);
             EditTimetableCommand = new RelayCommand<IUnitVM>(EditTimetable);
             AutoScheduleCommand = new RelayCommand<object>(param => AutoSchedule());
+            ExportHTMLCommand = new RelayCommand<object>(param => ExportHTML());
 
             Version = Assembly.GetExecutingAssembly().GetName().Version?.ToString();
         }
@@ -212,7 +215,13 @@ namespace TimetableDesigner.ViewModels.Views
         {
             if (ProjectService.ProjectViewModel is not null)
             {
-                Classroom classroom = new Classroom()
+                ulong id = 0;
+                if (ProjectService.ProjectViewModel.Classrooms.Count() > 0)
+                {
+                    id = ProjectService.ProjectViewModel.Classrooms.Select(x => x.Id).Max() + 1;
+                }
+
+                Classroom classroom = new Classroom(id)
                 {
                     Name = Resources.Global_DefaultClassroomName
                 };
@@ -225,7 +234,13 @@ namespace TimetableDesigner.ViewModels.Views
         {
             if (ProjectService.ProjectViewModel is not null)
             {
-                Teacher teacher = new Teacher()
+                ulong id = 0;
+                if (ProjectService.ProjectViewModel.Teachers.Count() > 0)
+                {
+                    id = ProjectService.ProjectViewModel.Teachers.Select(x => x.Id).Max() + 1;
+                }
+
+                Teacher teacher = new Teacher(id)
                 {
                     Name = Resources.Global_DefaultTeacherName
                 };
@@ -238,7 +253,13 @@ namespace TimetableDesigner.ViewModels.Views
         {
             if (ProjectService.ProjectViewModel is not null)
             {
-                Group group = new Group()
+                ulong id = 0;
+                if (ProjectService.ProjectViewModel.Groups.Count() > 0)
+                {
+                    id = ProjectService.ProjectViewModel.Groups.Select(x => x.Id).Max() + 1;
+                }
+
+                Group group = new Group(id)
                 {
                     Name = Resources.Global_DefaultGroupName
                 };
@@ -379,6 +400,20 @@ namespace TimetableDesigner.ViewModels.Views
             else
             {
                 _messageBoxService.ShowInformation(Resources.Main_Ribbon_Edit_Timetable_Autoschedule_Message_NoUnscheduledClasses);
+            }
+        }
+
+        private void ExportHTML()
+        {
+            if (ProjectService.ProjectViewModel is not null)
+            {
+                TabItem exportHTMLTab = new TabItem()
+                {
+                    Title = Resources.Tabs_ExportHTML,
+                    IsClosable = true,
+                    ViewModel = new ExportHTMLViewVM()
+                };
+                _tabNavigationService.AddAndActivate(exportHTMLTab);
             }
         }
 

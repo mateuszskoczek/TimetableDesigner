@@ -4,6 +4,7 @@
     <BitmapImage x:Key="CloseImage" UriSource="Images/Close.png"/>
     <BitmapImage x:Key="AutoscheduleImage" UriSource="Images/Autoschedule.png"/>
     <BitmapImage x:Key="AddImage" UriSource="Images/Add.png"/>
+    <BitmapImage x:Key="ImportImage" UriSource="Images/Import.png"/>
     <BitmapImage x:Key="ProjectImage" UriSource="Images/Project.png"/>
     <BitmapImage x:Key="ProjectSettingsImage" UriSource="Images/ProjectSettings.png"/>
     <BitmapImage x:Key="ClassroomImage" UriSource="Images/Classroom.png"/>
@@ -33,4 +34,5 @@
     <BitmapImage x:Key="RemoveWhiteImage" UriSource="Images/RemoveWhite.png"/>
     <BitmapImage x:Key="EditBlackImage" UriSource="Images/EditBlack.png"/>
     <BitmapImage x:Key="EditWhiteImage" UriSource="Images/EditWhite.png"/>
+    <BitmapImage x:Key="HTMLImage" UriSource="Images/HTML.png"/>
 </ResourceDictionary>
