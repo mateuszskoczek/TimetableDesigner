@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="TimetableDesigner.Views.ExportHTMLView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TimetableDesigner.Views"
+             xmlns:vm="clr-namespace:TimetableDesigner.ViewModels.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.DataContext>
+        <vm:ExportHTMLViewVM/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox Grid.Row="0" Margin="5" Header="Timetables to export">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Groups" Margin="2"/>
+                <ScrollViewer Grid.Row="1" Grid.Column="0" Margin="2">
+                    <ListBox ItemsSource="{Binding Groups}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Key.Name}" IsChecked="{Binding Value}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+                <TextBlock Grid.Row="0" Grid.Column="1" Text="Subgroups" Margin="2"/>
+                <ScrollViewer Grid.Row="1" Grid.Column="1" Margin="2">
+                    <ListBox ItemsSource="{Binding Subgroups}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Key.Name}" IsChecked="{Binding Value}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Teachers" Margin="2"/>
+                <ScrollViewer Grid.Row="3" Grid.Column="0" Margin="2">
+                    <ListBox ItemsSource="{Binding Teachers}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Key.Name}" IsChecked="{Binding Value}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+                <TextBlock Grid.Row="2" Grid.Column="1" Text="Classrooms" Margin="2"/>
+                <ScrollViewer Grid.Row="3" Grid.Column="1" Margin="2">
+                    <ListBox ItemsSource="{Binding Classrooms}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Key.Name}" IsChecked="{Binding Value}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </Grid>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Export" Margin="5" Padding="3" Command="{Binding ExportCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
