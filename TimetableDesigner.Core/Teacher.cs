@@ -12,7 +12,6 @@ namespace TimetableDesigner.Core
     {
         #region FIELDS
 
-        private string _shortName;
         private string _description;
         private JsonSerializableDictionary<TimetableDay, TimetableSpanCollection> _availabilityHours;
 
@@ -22,11 +21,6 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public string ShortName
-        {
-            get => _shortName;
-            set => _shortName = value;
-        }
         public string Description
         {
             get => _description;
@@ -42,7 +36,6 @@ namespace TimetableDesigner.Core
 
         public Teacher(ulong id) : base(id)
         {
-            _shortName = string.Empty;
             _description = string.Empty;
             _availabilityHours = new JsonSerializableDictionary<TimetableDay, TimetableSpanCollection>();
         }

@@ -12,7 +12,6 @@ namespace TimetableDesigner.Core
     {
         #region FIELDS
 
-        private string _shortName;
         private string _description;
         private bool _isCapacityLimited;
         private uint _capacity;
@@ -23,11 +22,6 @@ namespace TimetableDesigner.Core
 
         #region PROPERTIES
 
-        public string ShortName
-        {
-            get => _shortName;
-            set => _shortName = value;
-        }
         public string Description
         {
             get => _description;
@@ -52,7 +46,6 @@ namespace TimetableDesigner.Core
 
         public Classroom(ulong id) : base(id)
         {
-            _shortName = string.Empty;
             _description = string.Empty;
             _isCapacityLimited = false;
             _capacity = 1;

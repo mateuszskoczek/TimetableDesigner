@@ -15,6 +15,7 @@ namespace TimetableDesigner.Core
         private ulong _id;
         private Guid _guid;
         private string _name;
+        private string _shortName;
 
         #endregion
 
@@ -29,6 +30,11 @@ namespace TimetableDesigner.Core
             get => _name;
             set => _name = value;
         }
+        public string ShortName
+        {
+            get => _shortName;
+            set => _shortName = value;
+        }
 
         #endregion
 
@@ -41,6 +47,7 @@ namespace TimetableDesigner.Core
             _id = id;
             _guid = Guid.NewGuid();
             _name = string.Empty;
+            _shortName = string.Empty;
         }
 
         #endregion
