@@ -1,4 +1,4 @@
-name: Build app
+name: Build and test app
 
 on:
   push:
@@ -14,8 +14,8 @@ on:
       - "TimetableDesigner**"
 
 jobs:
-  analyze:
-    name: Build app
+  build_and_test:
+    name: Build and test app
     steps:
       - name: Checkout
         uses: actions/checkout@v6
