@@ -66,7 +66,7 @@ jobs:
         uses: ksm2/archive-action@v1
         with:
           format: "zip"
-          name: timetable_designer_${{needs.determine_version.outputs.version}}_${{ matrix.platform }}"
+          name: timetable_designer_${{needs.determine_version.outputs.version}}_${{ matrix.platform }}
           root-directory: TimetableDesigner/bin/Release/net7.0-windows/win-${{ matrix.platform }}
       - name: Upload artifact
         uses: actions/upload-artifact@v3
