@@ -1,0 +1,100 @@
+name: Build, test and publish app
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "TimetableDesigner**"
+
+jobs:
+  build_and_test:
+    name: Build and test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 7.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --no-restore
+      - name: Test
+        run: dotnet test
+  determine_version:
+    name: Determine version
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6.0.2
+        with:
+          fetch-depth: 0
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 10.0.x
+      - name: Setup GitVersion
+        uses: gittools/actions/gitversion/setup@v4.2.0
+        with:
+          versionSpec: 6.4.x
+      - name: Determine version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v4.2.0
+        id: gitversion
+        with:
+          configFilePath: ./.gitea/config/gitversion.yml
+    outputs: 
+      version: ${{ steps.gitversion.outputs.SemVer }}
+  pack:
+    name: Pack
+    needs: 
+      - build_and_test
+      - determine_version
+    strategy:
+      matrix:
+        platform: [x64, x86]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 7.0.x
+      - name: Publish 
+        run: dotnet publish -c Release -r win-${{ matrix.platform }} --self-contained true -p:PublishSingleFile=true -p:Version=${{needs.determine_version.outputs.version}} .\TimetableDesigner\TimetableDesigner.csproj
+      - name: Create .ZIP archive
+        id: archive
+        uses: ksm2/archive-action@v1
+        with:
+          format: "zip"
+          name: timetable_designer_${{needs.determine_version.outputs.version}}_${{ matrix.platform }}"
+          root-directory: "TimetableDesigner\bin\Release\net7.0-windows\win-${{ matrix.platform }}"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.platform }}
+          path: ${{ steps.archive.outputs.path }}
+  publish:
+    name: Publish
+    needs: pack
+    steps:
+      - name: Download x64 artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: x64
+          path: ${{ github.workspace}}
+      - name: Download x86 artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: x86
+          path: ${{ github.workspace}}
+      - name: Create Release
+        uses: akkuman/gitea-release-action@v1
+        with:
+          tag_name: ${{needs.determine_version.outputs.version}}
+          name: ${{needs.determine_version.outputs.version}}
+          files: |-
+            timetable_designer_${{needs.determine_version.outputs.version}}_x64.zip
+            timetable_designer_${{needs.determine_version.outputs.version}}_x86.zip
+      
