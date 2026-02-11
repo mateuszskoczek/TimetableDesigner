@@ -39,7 +39,6 @@ jobs:
         with:
           versionSpec: 6.4.x
       - name: Determine version
-        id: gitversion
         uses: gittools/actions/gitversion/execute@v4.2.0
         id: gitversion
         with:
