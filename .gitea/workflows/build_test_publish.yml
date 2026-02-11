@@ -25,6 +25,7 @@ jobs:
         run: dotnet test
   determine_version:
     name: Determine version
+    needs: build_and_test
     steps:
       - name: Checkout
         uses: actions/checkout@v6.0.2
@@ -47,9 +48,7 @@ jobs:
       version: ${{ steps.gitversion.outputs.SemVer }}
   pack:
     name: Pack
-    needs: 
-      - build_and_test
-      - determine_version
+    needs: determine_version
     strategy:
       matrix:
         platform: [x64, x86]
