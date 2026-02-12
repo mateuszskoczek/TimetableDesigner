@@ -4,7 +4,7 @@
 
 <h3 align="center"><b>Advanced school timetable editor, allows you to easily create and manage school timetable.</b></h3>
 
-<p align="center">Timetable Designer was written in C# and WPF framework. This project was part of "Individual Project" course at Warsaw University of Technology.</p>
+<p align="center">Timetable Designer was written in C# and WPF framework. App facilitates the creation of school timetables by detecting conflicts between classes at the group, room and teacher levels and by presenting the plan in an accessible form with drag & drop support. This project was part of "Individual Project" course at Warsaw University of Technology.</p>
 
 <p align="center"><img width="50%" src=".gitea/readme/screenshot.png"/></p>
 
