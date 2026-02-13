@@ -12,7 +12,7 @@
 
 ## Informations
 
-> [!NOTE]  
+> [!NOTE]
 > There is newer version of this app, rewritten as web application. You can check it out <a href="https://repos.mateuszskoczek.com/TimetableDesigner">here</a>. It may be still in development stage.
 
 > [!IMPORTANT]  
@@ -20,11 +20,21 @@
 
 ## Features
 
-- abc
+- Edit timetable with "drag and drop" method. Timetables for different entities will synchronise with each other.
+- Create 3 different types of entities: groups, teachers and classrooms. Edit timetable from each perspective.
+- Autodetecting collisions and other errors in timetable.
+- Create your own table, define days and class slots.
+- Autoschedule unscheduled classes as much optimally as possible.
+- Save a timetable as project file for further editing.
+- Export timetable to other file formats (only HTML available at the moment)
+- Define teachers availability hours. App will warn you if you set class for teacher outside its availability hours.
+- Define subgroups for group. This will allow you to set up classes, e.g. for different language subgroups, at the same time.
 
 ## Installation and usage
 
-abc
+Download latest package version from Releases tab and unpack it. Inside you will find all files required to run application and the application itself.  You shouldn't need to install any dependencies. Just run "TimetableDesigner.exe".
+
+You can find usage instructions in repository <a href="https://repos.mateuszskoczek.com/MateuszSkoczek/TimetableDesigner/wiki">Wiki</a> tab.
 
 ## Attribution
 
