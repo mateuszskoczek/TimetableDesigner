@@ -38,7 +38,7 @@ You can find usage instructions in repository <a href="https://repos.mateuszskoc
 
 ## Attribution
 
-You can copy this repository and create your own version of the app freely. However, it would be nice if you included URL to this repository in the description to your repository or in README file.
+This project is open source on MIT License, so you can just copy and upload again to your repository. But according to the license, you must include information about the original author. You can find license <a href="https://repos.mateuszskoczek.com/MateuszSkoczek/TimetableDesigner/src/branch/main/LICENSE">here</a>.
 
 **Other sources:**
 
