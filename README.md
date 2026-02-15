@@ -15,7 +15,7 @@
 > [!Important]
 > **For Github users:**
 >
-> This is only mirror repository. All changes are first uploaded to the repository <a href="https://repos.mateuszskoczek.com/MateuszSkoczek/TimetableDesigner">here</a>. Releases and documentation (Wiki) are also published on original repository. However, Github repository handles issues for better accessibility.
+> This is only mirror repository. All changes are first uploaded to the repository <a href="https://repos.mateuszskoczek.com/MateuszSkoczek/TimetableDesigner">here</a>. Releases and documentation (Wiki) are also published on original repository. However, Github repository handles issues and pull requests for better accessibility.
 
 > [!NOTE]
 > There is newer version of this app, rewritten as web application. You can check it out <a href="https://repos.mateuszskoczek.com/TimetableDesigner">here</a>. It may be still in development stage.
