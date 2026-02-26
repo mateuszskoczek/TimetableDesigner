@@ -13,6 +13,7 @@ on:
 jobs:
   build_test_version:
     name: Build, test and determine version
+    runs-on: linux
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -41,6 +42,7 @@ jobs:
       version: ${{ steps.gitversion.outputs.SemVer }}      
   pack:
     name: Pack
+    runs-on: linux
     needs: build_test_version
     strategy:
       matrix:
@@ -70,6 +72,7 @@ jobs:
       version: ${{needs.build_test_version.outputs.version}} 
   publish:
     name: Publish
+    runs-on: linux
     needs: pack
     steps:
       - name: Download x64 artifact
